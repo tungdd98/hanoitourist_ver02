@@ -1,0 +1,385 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_default.Master.cs" Inherits="hanoitourist_ver02.layouts._admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Hanoitourist</title>
+    <script src="https://kit.fontawesome.com/ab4eacbd98.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="../publics/default/css/main.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="app" class="bg-white">
+        <!-- Begin: Header -->
+        <header class="bg-white">
+            <div
+                class="container d-flex align-items-center justify-content-between py-3">
+                <div style="max-width: 222px;">
+                    <img
+                        src="../publics/uploads/logo.png"
+                        alt="logo"
+                        class="img-fluid" />
+                </div>
+                <div
+                    class="flex-grow-1 d-flex flex-column align-items-center">
+                    <div>
+                        <button class="btn btn-sm btn-outline-info">
+                            Du lich Chau Au
+                        </button>
+                        <button class="btn btn-sm btn-outline-info">
+                            Tour han quoc
+                        </button>
+                        <button class="btn btn-sm btn-outline-info">
+                            Tour cao cap
+                        </button>
+                        <button class="btn btn-sm btn-outline-info">
+                            Tour khuyen mai
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center pt-2">
+                        <div class="mx-3">
+                            <img src="../publics/uploads/icon1.png" alt="image" />
+                            <span>19004518</span>
+                        </div>
+                        <div class="mx-3">
+                            <img src="../publics/uploads/icon2.png" alt="image" />
+                            <span>sales@hanoitourist.vn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column align-items-end">
+                    <div class="font-12 mb-1">
+                        <a href="#" class="text-dark mx-2">Giới thiệu</a>
+                        <a href="#" class="text-dark ml-2 mr-4">Liên hệ</a>
+                        <a
+                            class="btn btn-sm btn-warning text-white rounded-pill"
+                            href="#">
+                            <img
+                                src="../publics/uploads/giohang.png"
+                                alt="giohang"
+                                class="pr-2" />
+                            <span class="font-12">Giỏ hàng</span>
+                        </a>
+                    </div>
+                    <div>
+                        <button class="btn btn-sm btn-outline-warning px-3">
+                            Đăng ký
+                        </button>
+                        <button
+                            class="btn btn-sm btn-warning text-white px-3">
+                            Đăng nhập
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End: Header -->
+        <!-- Begin: Nav -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div
+                    class="collapse navbar-collapse"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Trang chủ
+                                    <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Du lịch trong nước</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Du lịch nước ngoài</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Hot tour</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Combo du lịch</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Mice</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Vận chuyển</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Thư viện</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Tin tức</a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link text-uppercase font-weight-bold text-white"
+                                href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End: Nav -->
+        <div>
+            <asp:ContentPlaceHolder ID="main" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- Begin: Footer -->
+        <footer>
+            <div class="bg-mid-blue py-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <p class="el-subtitle text-white">
+                                tour trong nước
+                            </p>
+                            <ul class="el-footer-links">
+                                <li><a href="#">Tour theo điểm đến</a></li>
+                                <li><a href="#">Tour theo dịp</a></li>
+                                <li><a href="#">Tour thường xuyên</a></li>
+                                <li><a href="#">Tour giờ chót</a></li>
+                                <li><a href="#">Combo du lịch</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <p class="el-subtitle text-white">
+                                TOUR NƯỚC NGOÀI
+                            </p>
+                            <ul class="el-footer-links">
+                                <li><a href="#">Tour theo điểm đến</a></li>
+                                <li><a href="#">Tour thường xuyên</a></li>
+                                <li><a href="#">Tour giờ chót</a></li>
+                                <li><a href="#">Combo du lịch</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <p class="el-subtitle text-white">
+                                dịch vụ
+                            </p>
+                            <ul class="el-footer-links">
+                                <li><a href="#">Visa</a></li>
+                                <li><a href="#">Du thuyền</a></li>
+                                <li><a href="#">Khách sạn</a></li>
+                                <li><a href="#">Vé máy bay</a></li>
+                                <li><a href="#">Du lịch Mice</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <p class="el-subtitle text-white">
+                                VỀ HANOITOURIST
+                            </p>
+                            <ul class="el-footer-links">
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                                <li><a href="#">Tin tức</a></li>
+                                <li><a href="#">Thư viện</a></li>
+                                <li><a href="#">Cam kết bảo mật</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr class="bg-white" />
+                    <img src="../publics/uploads/logo2.png" width="250" alt="" />
+                    <div class="el-weight-bold font-18 my-2 text-white">
+                        CÔNG TY LỮ HÀNH HANOITOURIST
+                    </div>
+                    <div class="row text-white">
+                        <div class="col-6">
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/icon12.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Trụ sở chính:18 Lý Thường Kiệt, Ph.Phan
+                                        Chu Trinh, Q.Hoàn Kiếm, Hà Nội</span>
+                            </div>
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/icon12.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Chi nhánh:Hanoitourist Ba Đình, 134
+                                        Nguyễn Thái Học, Q.Ba Đình, Hà Nội</span>
+                            </div>
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/icon13.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Website:
+                                        http://www.hanoitourist.vn</span>
+                            </div>
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/icon14.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Email: sales@hanoitourist.vn</span>
+                            </div>
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/icon15.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Hotline:0965934518</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/phone.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Phòng khách lẻ: 19004518 (Ext:
+                                        218)</span>
+                            </div>
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/phone.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Phòng khách Đoàn: 19004518 (Ext:
+                                        258)</span>
+                            </div>
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/phone.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Phòng Du Lịch Nội Địa: 19004518 (Ext:
+                                        102)</span>
+                            </div>
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/phone.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>VP Hanoitourist Ba Đình: 19004518 (Ext:
+                                        508)</span>
+                            </div>
+                            <div class="my-2">
+                                <img
+                                    src="../publics/uploads/phone.png"
+                                    alt=""
+                                    width="16"
+                                    class="mr-1" />
+                                <span>Giấy phép KDLHQT: 01-442/2019/TCDL-GP
+                                        LHQT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-primary text-center text-white py-1">
+                Clone by Nhóm 2
+            </div>
+        </footer>
+        <!-- End: Footer -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script
+        type="text/javascript"
+        src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+            $(".tour-inside").slick({
+                infinite: true,
+                slidesToShow: 8,
+                slidesToScroll: 8,
+                autoplay: true,
+                speed: 300,
+                prevArrow:
+                    '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
+                nextArrow:
+                    '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
+            });
+            $(".tour-outside").slick({
+                infinite: true,
+                slidesToShow: 8,
+                slidesToScroll: 8,
+                autoplay: true,
+                speed: 300,
+                prevArrow:
+                    '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
+                nextArrow:
+                    '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
+            });
+            $(".lib-video").slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                autoplay: true,
+                speed: 300,
+                prevArrow:
+                    '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
+                nextArrow:
+                    '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
+            });
+            $(".partner").slick({
+                infinite: true,
+                slidesToShow: 6,
+                slidesToScroll: 6,
+                autoplay: true,
+                speed: 300,
+                prevArrow:
+                    '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
+                nextArrow:
+                    '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
+            });
+        });
+    </script>
+</body>
+</html>
