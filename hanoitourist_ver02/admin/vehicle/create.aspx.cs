@@ -22,7 +22,7 @@ namespace hanoitourist_ver02.admin.vehicle
         {
             dto.Title = title.Text;
             bus.Insert(dto.Title);
-            Response.Redirect("~/admin/vehicle/index.aspx");
+            Response.Redirect("~/admin/vehicle/index.aspx?status=add-success");
         }
     }
 }

@@ -33,5 +33,14 @@ namespace DAL
             cmd.Dispose();
             cmd.Clone();
         }
+        public bool CheckExits(string sql)
+        {
+            SqlConnection con = GetConnect();
+            con.Open();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            int count = (int)cmd.ExecuteScalar();
+
+            return count > 0;
+        }
     }
 }

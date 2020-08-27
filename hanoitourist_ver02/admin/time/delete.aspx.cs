@@ -22,7 +22,7 @@ namespace hanoitourist_ver02.admin.time
         {
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             bus.Delete(dto.Id);
-            Response.Redirect("~/admin/time/index.aspx");
+            Response.Redirect("~/admin/time/index.aspx?status=delete-success");
         }
     }
 }
