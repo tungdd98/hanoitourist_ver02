@@ -21,7 +21,7 @@ namespace hanoitourist_ver02.admin.locations
         {
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             bus.Delete(dto.Id);
-            Response.Redirect("~/admin/locations/index.aspx");
+            Response.Redirect("~/admin/locations/index.aspx?status=delete-success");
         }
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomerTypeBus.cs" />
     <Compile Include="TimeTourBus.cs" />
+    <Compile Include="TourBus.cs" />
     <Compile Include="VehicleTourBus.cs" />
   </ItemGroup>
   <ItemGroup>

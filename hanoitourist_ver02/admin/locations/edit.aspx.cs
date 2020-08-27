@@ -63,7 +63,7 @@ namespace hanoitourist_ver02.admin.locations
             dto.IsStart = Byte.Parse(isStart.SelectedValue);
             SaveFileUpload();
             bus.Update(dto.Id, dto.CountryId, dto.Title, dto.Thumbnail, dto.Description, dto.IsStart);
-            Response.Redirect("~/admin/locations/index.aspx");
+            Response.Redirect("~/admin/locations/index.aspx?status=update-success");
         }
     }
 }

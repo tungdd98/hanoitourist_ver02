@@ -22,7 +22,7 @@ namespace hanoitourist_ver02.admin.time
         {
             dto.Title = title.Text;
             bus.Insert(dto.Title);
-            Response.Redirect("~/admin/time/index.aspx");
+            Response.Redirect("~/admin/time/index.aspx?status=add-success");
         }
     }
 }

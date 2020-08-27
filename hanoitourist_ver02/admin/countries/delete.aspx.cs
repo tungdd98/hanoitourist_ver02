@@ -22,7 +22,7 @@ namespace hanoitourist_ver02.admin.countries
         {
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             bus.Delete(dto.Id);
-            Response.Redirect("~/admin/countries/index.aspx");
+            Response.Redirect("~/admin/countries/index.aspx?status=delete-success");
         }
     }
 }

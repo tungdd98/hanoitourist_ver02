@@ -22,7 +22,7 @@ namespace hanoitourist_ver02.admin.customer_type
         {
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             bus.Delete(dto.Id);
-            Response.Redirect("~/admin/customer_type/index.aspx");
+            Response.Redirect("~/admin/customer_type/index.aspx?status=delete-success");
         }
     }
 }

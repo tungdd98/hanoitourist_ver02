@@ -75,6 +75,10 @@
     <Content Include="admin\time\delete.aspx" />
     <Content Include="admin\time\edit.aspx" />
     <Content Include="admin\time\index.aspx" />
+    <Content Include="admin\tours\create.aspx" />
+    <Content Include="admin\tours\delete.aspx" />
+    <Content Include="admin\tours\edit.aspx" />
+    <Content Include="admin\tours\index.aspx" />
     <Content Include="admin\vehicle\create.aspx" />
     <Content Include="admin\vehicle\delete.aspx" />
     <Content Include="admin\vehicle\edit.aspx" />
@@ -186,6 +190,34 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\time\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\tours\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\tours\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\tours\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\tours\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\tours\edit.aspx.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\tours\edit.aspx.designer.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\tours\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\tours\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\vehicle\create.aspx.cs">
@@ -334,7 +366,9 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="publics\uploads\tours\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

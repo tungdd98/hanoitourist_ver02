@@ -23,7 +23,7 @@ namespace hanoitourist_ver02.admin.countries
             dto.Title = title.Text;
             dto.IsNation = Byte.Parse(isNation.SelectedValue);
             bus.Insert(dto.Title, dto.IsNation);
-            Response.Redirect("~/admin/countries/index.aspx");
+            Response.Redirect("~/admin/countries/index.aspx?status=add-success");
         }
     }
 }

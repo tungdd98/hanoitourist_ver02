@@ -44,14 +44,13 @@ namespace hanoitourist_ver02.admin.locations
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
+            SaveFileUpload();
             dto.CountryId = Int32.Parse(countryId.SelectedValue);
             dto.Title = title.Text;
-            
             dto.Description = description.Text;
             dto.IsStart = Byte.Parse(isStart.SelectedValue);
             bus.Insert(dto.CountryId, dto.Title, dto.Thumbnail, dto.Description, dto.IsStart);
-            SaveFileUpload();
-            Response.Redirect("~/admin/locations/index.aspx");
+            Response.Redirect("~/admin/locations/index.aspx?status=add-success");
         }
     }
 }

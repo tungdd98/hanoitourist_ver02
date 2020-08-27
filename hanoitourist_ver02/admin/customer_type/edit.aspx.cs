@@ -35,7 +35,7 @@ namespace hanoitourist_ver02.admin.customer_type
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             dto.Title = title.Text;
             bus.Update(dto.Id, dto.Title);
-            Response.Redirect("~/admin/customer_type/index.aspx");
+            Response.Redirect("~/admin/customer_type/index.aspx?status=update-success");
         }
     }
 }
