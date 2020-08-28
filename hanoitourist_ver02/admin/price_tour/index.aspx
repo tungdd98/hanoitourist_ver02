@@ -52,8 +52,8 @@
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
                             <div class="d-flex justify-content-center">
-                                <asp:Button Text="Xoá" runat="server" CssClass="btn btn-outline-danger btn-sm mx-1" PostBackUrl='<%# "~/admin/price_tour/delete.aspx?id=" + Eval("Id") %>' />
-                                <asp:Button Text="Sửa" runat="server" CssClass="btn btn-outline-warning btn-sm" PostBackUrl='<%# "~/admin/price_tour/edit.aspx?id=" + Eval("Id") %>' />
+                                <asp:Button Text="Xoá" runat="server" CssClass="btn btn-outline-danger btn-sm mx-1" PostBackUrl='<%# "~/admin/price_tour/delete.aspx?customerTypeId=" + Eval("CustomerTypeId") + "&tourId=" + Eval("TourId") %>' />
+                                <asp:Button Text="Sửa" runat="server" CssClass="btn btn-outline-warning btn-sm" PostBackUrl='<%# "~/admin/price_tour/edit.aspx?customerTypeId=" + Eval("CustomerTypeId") + "&tourId=" + Eval("TourId") %>' />
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>

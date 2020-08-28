@@ -88,11 +88,11 @@ Create table DepartureDay (
 )
 
 create table PriceTour (
-	Id int identity(1,1) primary key, 
 	OriginalPrice float,
 	Price float,
-	CustomerTypeId int,
-	TourId varchar(100) foreign key(TourId) references Tours(Id) on update cascade on delete cascade
+	CustomerTypeId int foreign key(CustomerTypeId) references CustomerType(Id) on update cascade on delete cascade,
+	TourId varchar(100) foreign key(TourId) references Tours(Id) on update cascade on delete cascade,
+	Primary key(CustomerTypeId, TourId)
 )
 
 create table OrderDetail (

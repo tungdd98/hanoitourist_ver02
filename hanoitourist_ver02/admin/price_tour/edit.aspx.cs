@@ -21,9 +21,10 @@ namespace hanoitourist_ver02.admin.price_tour
             if (!IsPostBack)
             {
                 LoadDropList();
-                int id = Int32.Parse(Request.QueryString["id"].ToString());
+                int _customerTypeId = Int32.Parse(Request.QueryString["customerTypeId"].ToString());
+                string _tourId = Request.QueryString["tourId"].ToString();
                 DataTable td = new DataTable();
-                td = bus.GetRecord(id);
+                td = bus.GetRecord(_customerTypeId, _tourId);
                 originalPrice.Text = td.Rows[0]["OriginalPrice"].ToString();
                 price.Text = td.Rows[0]["Price"].ToString();
                 customerTypeId.SelectedValue = td.Rows[0]["CustomerTypeId"].ToString();
@@ -37,20 +38,22 @@ namespace hanoitourist_ver02.admin.price_tour
             customerTypeId.DataTextField = "Title";
             customerTypeId.DataValueField = "Id";
             customerTypeId.DataBind();
+            customerTypeId.Enabled = false;
             // Tour
             tourId.DataSource = tourBus.Show();
             tourId.DataTextField = "Title";
             tourId.DataValueField = "Id";
             tourId.DataBind();
+            tourId.Enabled = false;
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
+            dto.CustomerTypeId = Int32.Parse(Request.QueryString["customerTypeId"].ToString());
+            dto.TourId = Request.QueryString["tourId"].ToString();
             dto.OriginalPrice = float.Parse(originalPrice.Text);
             dto.Price = float.Parse(price.Text);
             dto.CustomerTypeId = Int32.Parse(customerTypeId.SelectedValue);
-            dto.TourId = tourId.SelectedValue;
-            bus.Update(dto.Id, dto.OriginalPrice, dto.Price, dto.CustomerTypeId, dto.TourId);
+            bus.Update(dto.OriginalPrice, dto.Price, dto.CustomerTypeId, dto.TourId);
             Response.Redirect("~/admin/price_tour/index.aspx?status=update-success");
         }
     }
