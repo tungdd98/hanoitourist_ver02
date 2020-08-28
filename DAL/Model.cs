@@ -10,9 +10,10 @@ namespace DAL
 {
     public class Model
     {
+        Config config = new Config();
         public SqlConnection GetConnect()
         {
-            return new SqlConnection(@"Data Source=DESKTOP-HM5GU92\SQLEXPRESS;Initial Catalog=QuanLyDuLich;Integrated Security=True");
+            return new SqlConnection(config.sqlConnect);
         }
         public DataTable GetTable(string sql)
         {
