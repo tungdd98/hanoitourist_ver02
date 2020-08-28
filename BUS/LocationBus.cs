@@ -36,5 +36,10 @@ namespace BUS
             string sql = "Select * from Locations where Id = " + id;
             return model.GetTable(sql);
         }
+        public DataTable GetLocationByWhere(int isStart = 0)
+        {
+            string sql = "Select * from Locations where IsStart = " + isStart;
+            return model.GetTable(sql);
+        }
     }
 }

@@ -39,12 +39,12 @@ namespace hanoitourist_ver02.admin.tours
         public void LoadDropDown()
         {
             // Điểm khởi hành
-            departureLocationId.DataSource = locationBus.Show();
+            departureLocationId.DataSource = locationBus.GetLocationByWhere(1);
             departureLocationId.DataTextField = "Title";
             departureLocationId.DataValueField = "Id";
             departureLocationId.DataBind();
             // Điểm đến
-            destinationLocationId.DataSource = locationBus.Show();
+            destinationLocationId.DataSource = locationBus.GetLocationByWhere();
             destinationLocationId.DataTextField = "Title";
             destinationLocationId.DataValueField = "Id";
             destinationLocationId.DataBind();
