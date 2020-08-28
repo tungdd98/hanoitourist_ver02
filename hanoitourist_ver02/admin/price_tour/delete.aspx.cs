@@ -19,8 +19,9 @@ namespace hanoitourist_ver02.admin.price_tour
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
-            bus.Delete(dto.Id);
+            dto.CustomerTypeId = Int32.Parse(Request.QueryString["customerTypeId"].ToString());
+            dto.TourId = Request.QueryString["tourId"].ToString();
+            bus.Delete(dto.CustomerTypeId, dto.TourId);
             Response.Redirect("~/admin/price_tour/index.aspx?status=delete-success");
         }
     }

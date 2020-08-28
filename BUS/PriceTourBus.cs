@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using System.Data;
+using DTO;
 
 namespace BUS
 {
@@ -13,27 +14,33 @@ namespace BUS
         Model model = new Model();
         public DataTable Show()
         {
-            string sql = "Select PriceTour.*, Tours.Title as TourTitle, CustomerType.Title as CustomerTypeName from PriceTour inner join Tours on Tours.Id = PriceTour.TourId inner join CustomerType on PriceTour.CustomerTypeId = CustomerType.Id order by PriceTour.Id desc";
+            string sql = "Select PriceTour.*, Tours.Title as TourTitle, CustomerType.Title as CustomerTypeName from PriceTour inner join Tours on Tours.Id = PriceTour.TourId inner join CustomerType on PriceTour.CustomerTypeId = CustomerType.Id";
             return model.GetTable(sql);
         }
-        public void Insert(float originalPrice, float price, int customerTypeId, string tourId)
+        public bool Insert(float originalPrice, float price, int customerTypeId, string tourId)
         {
             string sql = "Insert into PriceTour values(" + originalPrice + ", " + price + ", " + customerTypeId + ", '" + tourId + "')";
+            string sqlCheck = "Select count(*) from PriceTour where CustomerTypeId = " + customerTypeId + " and TourId = '" + tourId + "'";
+            if (model.CheckExits(sqlCheck))
+            {
+                return false;
+            }
+            model.Execute(sql);
+            return true;
+        }
+        public void Delete(int customerTypeId, string tourId)
+        {
+            string sql = "Delete from PriceTour where CustomerTypeId = " + customerTypeId + ", TourId = '" + tourId + "'";
             model.Execute(sql);
         }
-        public void Delete(int id)
+        public void Update(float originalPrice, float price, int customerTypeId, string tourId)
         {
-            string sql = "Delete from PriceTour where Id = " + id;
+            string sql = "Update PriceTour set OriginalPrice = " + originalPrice + ", Price = " + price + " where CustomerTypeId = " + customerTypeId + " and TourId = '" + tourId + "'";
             model.Execute(sql);
         }
-        public void Update(int id, float originalPrice, float price, int customerTypeId, string tourId)
+        public DataTable GetRecord(int customerTypeId, string tourId)
         {
-            string sql = "Update PriceTour set OriginalPrice = " + originalPrice + ", Price = " + price + ", CustomerTypeId = " + customerTypeId + ", TourId = '" + tourId + "' where Id = " + id;
-            model.Execute(sql);
-        }
-        public DataTable GetRecord(int id)
-        {
-            string sql = "Select * from PriceTour where Id = " + id;
+            string sql = "Select * from PriceTour where CustomerTypeId = " + customerTypeId + " and TourId = '" + tourId + "'";
             return model.GetTable(sql);
         }
     }

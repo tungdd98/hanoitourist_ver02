@@ -42,8 +42,13 @@ namespace hanoitourist_ver02.admin.price_tour
             dto.Price = float.Parse(price.Text);
             dto.CustomerTypeId = Int32.Parse(customerTypeId.SelectedValue);
             dto.TourId = tourId.SelectedValue;
-            bus.Insert(dto.OriginalPrice, dto.Price, dto.CustomerTypeId, dto.TourId);
-            Response.Redirect("~/admin/price_tour/index.aspx?status=add-success");
+            if(!bus.Insert(dto.OriginalPrice, dto.Price, dto.CustomerTypeId, dto.TourId))
+            {
+                Response.Write("<script>alert('Tour này đã có giá, không thể tạo thêm!!!')</script>");
+            } else
+            {
+                Response.Redirect("~/admin/price_tour/index.aspx?status=add-success");
+            }
         }
     }
 }
