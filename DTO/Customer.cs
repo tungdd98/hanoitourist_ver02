@@ -9,13 +9,17 @@ namespace DTO
     public class Customer
     {
         public int Id { get; set; }
-        // Thay đổi cái gì đó nhé
-        // ngó sang cái Change
-        public int CountryId { get; set; }
-        public string Title { get; set; }
-        public string Thumbnail { get; set; }
-        public string Description { get; set; }
-        public byte IsStart { get; set; }
-        public string CountryName { get; set; }
+
+        public string Name { get; set; }
+
+        public string Nation { get; set; }
+
+        public string Address { get; set; }
+
+        public string Phone { get; set; }
+
+        public string Email { get; set; }
+
+        public string Content { get; set; }
     }
 }
