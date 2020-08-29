@@ -46,7 +46,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Giá bán ra">
                         <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Price", "{0:n}") %>'></asp:Label> VNĐ
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Price", "{0:n0}") %>'></asp:Label> VNĐ
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField ShowHeader="False">

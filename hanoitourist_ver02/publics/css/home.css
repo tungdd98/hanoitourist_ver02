@@ -63,7 +63,7 @@ body {
     margin: 0;
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.5;
     color: #212529;
     text-align: left;
@@ -14372,7 +14372,10 @@ a.text-mid-orange:hover, a.text-mid-orange:focus {
 
 body {
     font-size: 14px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+select, input, button {
+    font-weight: inherit !important;
 }
 
 ul {
@@ -14519,7 +14522,7 @@ a:hover {
 
 .el-form {
     background-attachment: fixed;
-    background-image: url(../assets/apphic.png);
+    background-image: url(../uploads/apphic.png);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 500px;
@@ -14547,4 +14550,24 @@ a:hover {
     .el-footer-links a:hover {
         text-decoration: underline;
     }
+
+.el-dropdown {
+    font-size: 14px !important;
+}
+.el-dropdown .el-dropdown__title {
+    font-size: 16px !important;
+}
+.el-dropdown ul li {
+    position: relative;
+}
+.el-dropdown ul li::before {
+    content: '*';
+    color: #ff9300;
+    position: absolute;
+    display: inline-block;
+    margin-top: 2px;
+}
+#navbarSupportedContent .dropdown {
+    position: static !important;
+}
 /*# sourceMappingURL=main.css.map */

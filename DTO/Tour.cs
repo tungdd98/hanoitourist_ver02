@@ -23,5 +23,31 @@ namespace DTO
         public string DestinationName { get; set; }
         public string TimeName { get; set; }
         public string VehicleName { get; set; }
+        // Thuộc tính suy diễn
+        public List<PriceTour> PriceTour { get; set; }
+        public List<DepartureDay> DepartureDay { get; set; }
+        public float Price { get; set; }
+        public float OriginalPrice { get; set; }
+        public float Sale { get; set; }
+        public Tour() { }
+
+        public Tour(string id, string title, string thumbnail, string description, string content, int place, string schedule, string departureName, string destinationName, string timeName, string vehicleName, float originalPrice, float price, float sale, List<DepartureDay> departureDay)
+        {
+            Id = id;
+            Title = title;
+            Thumbnail = thumbnail;
+            Description = description;
+            Content = content;
+            Place = place;
+            Schedule = schedule;
+            DepartureName = departureName;
+            DestinationName = destinationName;
+            TimeName = timeName;
+            VehicleName = vehicleName;
+            OriginalPrice = originalPrice;
+            Price = price;
+            Sale = sale;
+            DepartureDay = departureDay;
+        }
     }
 }
