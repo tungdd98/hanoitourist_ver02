@@ -9,6 +9,8 @@ namespace DTO
     public class Customer
     {
         public int Id { get; set; }
+        // Thay đổi cái gì đó nhé
+        // ngó sang cái Change
         public int CountryId { get; set; }
         public string Title { get; set; }
         public string Thumbnail { get; set; }
