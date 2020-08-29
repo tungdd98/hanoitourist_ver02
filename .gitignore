@@ -79,7 +79,7 @@ StyleCopReport.xml
 *.tlh
 *.tmp
 *.tmp_proj
-*_wpftmp.csproj
+
 *.log
 *.vspscc
 *.vssscc
@@ -339,4 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-hanoitourist_ver02/DAL/Config.cs
+hanoitourist_ver02/DAL/Config.cs/*
