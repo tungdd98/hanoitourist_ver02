@@ -67,10 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\customer\create.aspx" />
     <Content Include="admin\customer_type\create.aspx" />
     <Content Include="admin\customer_type\delete.aspx" />
     <Content Include="admin\customer_type\edit.aspx" />
     <Content Include="admin\customer_type\index.aspx" />
+    <Content Include="admin\customer\delete.aspx" />
+    <Content Include="admin\customer\edit.aspx" />
+    <Content Include="admin\customer\index.aspx" />
     <Content Include="admin\price_tour\create.aspx" />
     <Content Include="admin\price_tour\delete.aspx" />
     <Content Include="admin\price_tour\edit.aspx" />
@@ -140,6 +144,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\customer\create.aspx.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\customer\create.aspx.designer.cs">
+      <DependentUpon>create.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\customer_type\create.aspx.cs">
       <DependentUpon>create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -166,6 +177,27 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\customer_type\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\customer\delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\customer\delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\customer\edit.aspx.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\customer\edit.aspx.designer.cs">
+      <DependentUpon>edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\customer\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\customer\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\price_tour\create.aspx.cs">

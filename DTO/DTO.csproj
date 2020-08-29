@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Country.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="PriceTour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

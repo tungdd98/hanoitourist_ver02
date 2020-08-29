@@ -8,6 +8,6 @@ namespace DAL
 {
     public class Config
     {
-        public string sqlConnect = @"Data Source=DESKTOP-HM5GU92\SQLEXPRESS;Initial Catalog=QuanLyDuLich;Integrated Security=True";
+        public string sqlConnect = @"Data Source=DESKTOP-8SQIKLE\SQLEXPRESS;Initial Catalog=QuanLyDuLich;Integrated Security=True";
     }
 }
