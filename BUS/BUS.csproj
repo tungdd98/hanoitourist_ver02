@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CountryBus.cs" />
     <Compile Include="DepartureDayBus.cs" />
+    <Compile Include="HomeBus.cs" />
     <Compile Include="LocationBus.cs" />
     <Compile Include="PriceTourBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

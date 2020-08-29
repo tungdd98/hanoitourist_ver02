@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <asp:Label Text="Giá ban đầu" runat="server" />
-            <asp:TextBox ID="originalPrice" runat="server" CssClass="form-control" type="text" required="true" pattern="[0-9]*"></asp:TextBox>
+            <asp:TextBox ID="originalPrice" runat="server" CssClass="form-control" type="text" required="true" pattern="[0-9]*" value="0"></asp:TextBox>
         </div>
         <div class="form-group">
             <asp:Label Text="Giá bán ra" runat="server" />

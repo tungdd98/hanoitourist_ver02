@@ -15,5 +15,13 @@ namespace DTO
         public string Description { get; set; }
         public byte IsStart { get; set; }
         public string CountryName { get; set; }
+
+        public Location() { }
+        public Location(int id, string title, byte isStart)
+        {
+            Id = id;
+            Title = title;
+            IsStart = isStart;
+        }
     }
 }
