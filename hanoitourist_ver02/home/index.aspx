@@ -63,12 +63,12 @@
                                 class="form-check-input"
                                 type="radio"
                                 name="exampleRadios"
-                                id="exampleRadios1"
+                                id="exampleRadios"
                                 value="option1"
                                 checked />
                             <label
                                 class="form-check-label text-capitalize"
-                                for="exampleRadios1">
+                                for="exampleRadios">
                                 Tour trong nước
                             </label>
                         </div>
@@ -100,22 +100,25 @@
                     <div class="mt-3 el-search">
                         <div class="row no-gutters">
                             <div class="col">
-                                <select
-                                    class="form-control rounded-0 border-right-0 font-14">
-                                    <option>Điểm xuất phát</option>
-                                </select>
+                                <asp:DropDownList ID="dropDiemXuatPhat" runat="server" CssClass="form-control rounded-0 border-right-0 font-14" AppendDataBoundItems="true">
+                                    <Items>
+                                        <asp:ListItem Text="Điểm khởi hành" Value="" />
+                                    </Items>
+                                </asp:DropDownList>
                             </div>
                             <div class="col">
-                                <select
-                                    class="form-control rounded-0 border-right-0 font-14">
-                                    <option>Bạn muốn đi đâu?</option>
-                                </select>
+                                <asp:DropDownList ID="dropDiemDen" runat="server" CssClass="form-control rounded-0 border-right-0 font-14" AppendDataBoundItems="true">
+                                    <Items>
+                                        <asp:ListItem Text="Bạn muốn đi đâu?" Value="" />
+                                    </Items>
+                                </asp:DropDownList>
                             </div>
                             <div class="col">
-                                <select
-                                    class="form-control rounded-0 border-right-0 font-14">
-                                    <option>Lịch trình</option>
-                                </select>
+                                <asp:DropDownList ID="dropTime" runat="server" CssClass="form-control rounded-0 border-right-0 font-14" AppendDataBoundItems="true">
+                                    <Items>
+                                        <asp:ListItem Text="Lịch trình" Value="" />
+                                    </Items>
+                                </asp:DropDownList>
                             </div>
                             <div class="col">
                                 <input
@@ -125,10 +128,13 @@
                                     placeholder="Ngày khởi hành" />
                             </div>
                             <div class="col">
-                                <select
-                                    class="form-control rounded-0 border-right-0 font-14">
-                                    <option>Khoảng giá</option>
-                                </select>
+                                <asp:DropDownList ID="dropPrice" runat="server" CssClass="form-control rounded-0 border-right-0 font-14" AppendDataBoundItems="true">
+                                    <asp:ListItem Text="Khoảng giá" Value=""></asp:ListItem>
+                                    <asp:ListItem Text="Nhỏ hơn 3 triệu" Value="0"></asp:ListItem>
+                                    <asp:ListItem Text="Từ 3 triệu - 10 triệu" Value="1"></asp:ListItem>
+                                    <asp:ListItem Text="Từ 10 triệu - 25 triệu" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="Trên 25 triệu" Value="3"></asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                             <div class="col">
                                 <button
@@ -384,7 +390,7 @@
             <div class="tour-inside">
                 <asp:ListView runat="server" ID="locationNation">
                     <ItemTemplate>
-                        <a class="px-1 overflow-hidden position-relative" href="#">
+                        <asp:HyperLink NavigateUrl='<%# "~/home/tour.aspx?id=" + Eval("Id") %>' runat="server" CssClass="px-1 overflow-hidden position-relative">
                             <img
                                 src="../publics/uploads/locations/<%# Eval("Thumbnail") %>"
                                 alt=""
@@ -393,7 +399,7 @@
                                 <span
                                     class="text-white el-weight-bold text-uppercase el-text-shadow"><%# Eval("Title") %></span>
                             </div>
-                        </a>
+                        </asp:HyperLink>
                     </ItemTemplate>
                 </asp:ListView>
             </div>
@@ -566,7 +572,7 @@
             <div class="tour-inside">
                 <asp:ListView runat="server" ID="locationEnterNation">
                     <ItemTemplate>
-                        <a class="px-1 overflow-hidden position-relative" href="#">
+                        <asp:HyperLink NavigateUrl='<%# "~/home/tour.aspx?id=" + Eval("Id") %>' runat="server" CssClass="px-1 overflow-hidden position-relative">
                             <img
                                 src="../publics/uploads/locations/<%# Eval("Thumbnail") %>"
                                 alt=""
@@ -575,7 +581,7 @@
                                 <span
                                     class="text-white el-weight-bold text-uppercase el-text-shadow"><%# Eval("Title") %></span>
                             </div>
-                        </a>
+                        </asp:HyperLink>
                     </ItemTemplate>
                 </asp:ListView>
             </div>

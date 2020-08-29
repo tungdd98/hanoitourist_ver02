@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.locations
@@ -63,7 +64,8 @@ namespace hanoitourist_ver02.admin.locations
             dto.IsStart = Byte.Parse(isStart.SelectedValue);
             SaveFileUpload();
             bus.Update(dto.Id, dto.CountryId, dto.Title, dto.Thumbnail, dto.Description, dto.IsStart);
-            Response.Redirect("~/admin/locations/index.aspx?status=update-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Cập nhật thành công!!"), true);
         }
     }
 }

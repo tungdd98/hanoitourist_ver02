@@ -15,6 +15,42 @@ namespace hanoitourist_ver02.home
     {
 
         /// <summary>
+        /// dropDiemXuatPhat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropDiemXuatPhat;
+
+        /// <summary>
+        /// dropDiemDen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropDiemDen;
+
+        /// <summary>
+        /// dropTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropTime;
+
+        /// <summary>
+        /// dropPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropPrice;
+
+        /// <summary>
         /// tourHotKhuyenMai control.
         /// </summary>
         /// <remarks>

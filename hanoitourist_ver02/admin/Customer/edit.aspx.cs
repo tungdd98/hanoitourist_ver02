@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using DTO;
 using BUS;
 using System.Data;
-using System.CodeDom.Compiler;
+using DAL;
 
 namespace hanoitourist_ver02.admin.customer
 {
@@ -36,7 +36,8 @@ namespace hanoitourist_ver02.admin.customer
 
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             bus.Update(dto.Id, name.Text, nation.Text, address.Text, phone.Text, email.Text, content.Text);
-            Response.Redirect("~/admin/customer/index.aspx?status=update-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Cập nhật thành công!!"), true);
         }
     }
 }

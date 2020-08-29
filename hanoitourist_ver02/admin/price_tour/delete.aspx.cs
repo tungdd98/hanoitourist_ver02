@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 
 namespace hanoitourist_ver02.admin.price_tour
 {
@@ -22,7 +23,8 @@ namespace hanoitourist_ver02.admin.price_tour
             dto.CustomerTypeId = Int32.Parse(Request.QueryString["customerTypeId"].ToString());
             dto.TourId = Request.QueryString["tourId"].ToString();
             bus.Delete(dto.CustomerTypeId, dto.TourId);
-            Response.Redirect("~/admin/price_tour/index.aspx?status=delete-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Xoá thành công!!"), true);
         }
     }
 }

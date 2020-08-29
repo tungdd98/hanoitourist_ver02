@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 
 namespace hanoitourist_ver02.admin.vehicle
 {
@@ -22,7 +23,8 @@ namespace hanoitourist_ver02.admin.vehicle
         {
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             bus.Delete(dto.Id);
-            Response.Redirect("~/admin/vehicle/index.aspx?status=delete-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Xoá thành công!!"), true);
         }
     }
 }

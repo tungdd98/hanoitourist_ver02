@@ -99,7 +99,7 @@
                     <span>Quản lý thời gian tour</span></a>
             </div>
             <div class="nav-item">
-                <a class="nav-link" href="../Customer/index.aspx">
+                <a class="nav-link" href="../customer/index.aspx">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Quản lý khách hàng</span></a>
             </div>

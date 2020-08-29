@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.locations
@@ -50,7 +51,8 @@ namespace hanoitourist_ver02.admin.locations
             dto.Description = description.Text;
             dto.IsStart = Byte.Parse(isStart.SelectedValue);
             bus.Insert(dto.CountryId, dto.Title, dto.Thumbnail, dto.Description, dto.IsStart);
-            Response.Redirect("~/admin/locations/index.aspx?status=add-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Thêm mới thành công!!"), true);
         }
     }
 }

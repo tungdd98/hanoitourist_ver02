@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.countries
@@ -37,7 +38,8 @@ namespace hanoitourist_ver02.admin.countries
             dto.Title = title.Text;
             dto.IsNation = Byte.Parse(isNation.SelectedValue);
             bus.Update(dto.Id, dto.Title, dto.IsNation);
-            Response.Redirect("~/admin/countries/index.aspx?status=update-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Cập nhật thành công!!"), true);
         }
     }
 }

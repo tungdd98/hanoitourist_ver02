@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 
 namespace hanoitourist_ver02.admin.countries
 {
@@ -22,7 +23,8 @@ namespace hanoitourist_ver02.admin.countries
         {
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             bus.Delete(dto.Id);
-            Response.Redirect("~/admin/countries/index.aspx?status=delete-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Xoá thành công!!"), true);
         }
     }
 }

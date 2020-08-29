@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.customer_type
@@ -35,7 +36,8 @@ namespace hanoitourist_ver02.admin.customer_type
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             dto.Title = title.Text;
             bus.Update(dto.Id, dto.Title);
-            Response.Redirect("~/admin/customer_type/index.aspx?status=update-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Cập nhật thành công!!"), true);
         }
     }
 }

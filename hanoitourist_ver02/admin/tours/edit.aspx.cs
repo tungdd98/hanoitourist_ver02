@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.tours
@@ -87,7 +88,8 @@ namespace hanoitourist_ver02.admin.tours
             dto.TimeId = Int32.Parse(timeId.SelectedValue);
             dto.VehicleId = Int32.Parse(vehicleId.SelectedValue);
             bus.Update(dto.Id, dto.Title, dto.Thumbnail, dto.Description, dto.Content, dto.DepartureLocationId, dto.DestinationLocationId, dto.TimeId, dto.VehicleId, dto.Place, dto.Schedule);
-            Response.Redirect("~/admin/tours/index.aspx?status=update-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Cập nhật thành công!!"), true);
         }
     }
 }

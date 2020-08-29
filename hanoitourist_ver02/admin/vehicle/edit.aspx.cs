@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using DTO;
 using BUS;
 using System.Data;
+using DAL;
 
 namespace hanoitourist_ver02.admin.vehicle
 {
@@ -35,7 +36,8 @@ namespace hanoitourist_ver02.admin.vehicle
             dto.Id = Int32.Parse(Request.QueryString["id"].ToString());
             dto.Title = title.Text;
             bus.Update(dto.Id, dto.Title);
-            Response.Redirect("~/admin/vehicle/index.aspx?status=update-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Cập nhật thành công!!"), true);
         }
     }
 }

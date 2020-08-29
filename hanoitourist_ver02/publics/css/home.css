@@ -14374,7 +14374,7 @@ body {
     font-size: 14px;
 }
 
-select, input, button {
+select, input, button, option {
     font-weight: inherit !important;
 }
 

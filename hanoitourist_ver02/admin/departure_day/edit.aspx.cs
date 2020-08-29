@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.departure_day
@@ -47,7 +48,8 @@ namespace hanoitourist_ver02.admin.departure_day
             dto.StartTime = TimeSpan.Parse(startTime.Text);
             dto.TourId = tourId.SelectedValue;
             bus.Update(dto.Id, dto.TourId, dto.StartDay, dto.StartTime);
-            Response.Redirect("~/admin/departure_day/index.aspx?status=update-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Cập nhật thành công!!"), true);
         }
     }
 }

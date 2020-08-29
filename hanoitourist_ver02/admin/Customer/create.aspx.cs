@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.customer
@@ -27,7 +28,8 @@ namespace hanoitourist_ver02.admin.customer
             dto.Email = email.Text;
             dto.Content = content.Text;
             bus.Insert(dto.Name, dto.Nation, dto.Address, dto.Phone, dto.Email, dto.Content);
-            Response.Redirect("~/admin/customer/index.aspx?status=add-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Thêm mới thành công!!"), true);
         }
     }
 }

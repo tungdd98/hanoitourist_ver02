@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.price_tour
@@ -54,7 +55,8 @@ namespace hanoitourist_ver02.admin.price_tour
             dto.Price = float.Parse(price.Text);
             dto.CustomerTypeId = Int32.Parse(customerTypeId.SelectedValue);
             bus.Update(dto.OriginalPrice, dto.Price, dto.CustomerTypeId, dto.TourId);
-            Response.Redirect("~/admin/price_tour/index.aspx?status=update-success");
+            Button1.Enabled = false;
+            ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Cập nhật thành công!!"), true);
         }
     }
 }

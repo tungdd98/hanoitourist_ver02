@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 
 namespace hanoitourist_ver02.admin.tours
 {
@@ -78,7 +79,8 @@ namespace hanoitourist_ver02.admin.tours
                 Response.Write("<script>alert('Mã tour đã tồn tại!!!')</script>");
             } else
             {
-                Response.Redirect("~/admin/tours/index.aspx?status=add-success");
+                Button1.Enabled = false;
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Thêm mới thành công!!"), true);
             }
         }
     }

@@ -20,8 +20,12 @@ namespace hanoitourist_ver02.layouts
         }
         public void LoadNavigation()
         {
+            // Menu du lịch trong nước
             ListNav.DataSource = bus.GetCountries(0);
             ListNav.DataBind();
+            // Menu du lịch nước ngoài
+            ListNav2.DataSource = bus.GetCountries(1);
+            ListNav2.DataBind();
         }
     }
 }

@@ -179,10 +179,22 @@ namespace BUS
             string sql = "Select Locations.*, Countries.IsNation from Locations inner join Countries on Locations.CountryId = Countries.Id where Countries.IsNation = " + isNation;
             return model.GetTable(sql);
         }
-        // Lấy thông tin location
+        // Lấy thông tin location detail
         public DataTable GetLocationDetail(string id)
         {
             string sql = "Select * from Locations where Id = " + id;
+            return model.GetTable(sql);
+        }
+        // Lấy thông tin location điểm đến/ điểm đi
+        public DataTable GetLocationsIsStart(byte isStart = 0)
+        {
+            string sql = "Select * from Locations where IsStart = " + isStart;
+            return model.GetTable(sql);
+        }
+        // Lấy thông tin thời gian 
+        public DataTable GetTimeTour()
+        {
+            string sql = "Select * from TimeTour order by Id desc";
             return model.GetTable(sql);
         }
     }

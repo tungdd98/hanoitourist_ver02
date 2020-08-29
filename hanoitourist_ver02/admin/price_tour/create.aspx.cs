@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using BUS;
+using DAL;
 using System.Data;
 
 namespace hanoitourist_ver02.admin.price_tour
@@ -47,7 +48,8 @@ namespace hanoitourist_ver02.admin.price_tour
                 Response.Write("<script>alert('Tour này đã có giá, không thể tạo thêm!!!')</script>");
             } else
             {
-                Response.Redirect("~/admin/price_tour/index.aspx?status=add-success");
+                Button1.Enabled = false;
+                ClientScript.RegisterStartupScript(this.GetType(), "SuccessMessage", Helper.ShowMessage("Thêm mới thành công!!"), true);
             }
         }
     }
