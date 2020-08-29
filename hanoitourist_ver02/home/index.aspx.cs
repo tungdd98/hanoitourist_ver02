@@ -26,7 +26,7 @@ namespace hanoitourist_ver02.home
         }
         public void LoadTourHotKhuyenMai() 
         {
-            tourHotKhuyenMai.DataSource = bus.GetTours("sale");
+            tourHotKhuyenMai.DataSource = bus.GetTours("sale", "top 6");
             tourHotKhuyenMai.DataBind();
         }
         public void LoadLocationNation()
@@ -36,7 +36,7 @@ namespace hanoitourist_ver02.home
         }
         public void LoadTourTheoDiemDenTrongNuoc()
         {
-            tourTheoDiemDenTrongNuoc.DataSource = bus.GetTours("nation", 12);
+            tourTheoDiemDenTrongNuoc.DataSource = bus.GetTours("nation", "top 12");
             tourTheoDiemDenTrongNuoc.DataBind();
         }
         public void LoadLocationEnterNation()
@@ -46,7 +46,7 @@ namespace hanoitourist_ver02.home
         }
         public void LoadTourTheoDiemDenNgoaiNuoc()
         {
-            tourTheoDiemDenNgoaiNuoc.DataSource = bus.GetTours("enternation", 12);
+            tourTheoDiemDenNgoaiNuoc.DataSource = bus.GetTours("enternation", "top 12");
             tourTheoDiemDenNgoaiNuoc.DataBind();
         }
     }

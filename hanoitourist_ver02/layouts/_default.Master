@@ -99,10 +99,7 @@
                         id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto position-relative">
                             <li class="nav-item active">
-                                <a
-                                    class="nav-link text-uppercase font-weight-bold text-white"
-                                    href="#">Trang chủ
-                                    <span class="sr-only">(current)</span></a>
+                                <asp:HyperLink NavigateUrl="~/home/index.aspx" runat="server" Text="Trang chủ" CssClass="nav-link text-uppercase font-weight-bold text-white" />
                             </li>
                             <li class="nav-item dropdown">
                                 <a
@@ -119,7 +116,7 @@
                                                         <asp:ListView ID="ListSubNav" runat="server" DataSource='<%# Eval("Location") %>'>
                                                             <ItemTemplate>
                                                                 <li>
-                                                                    <asp:HyperLink NavigateUrl="#" runat="server" CssClass="ml-3" Text='<%# Eval("Title") %>' />
+                                                                    <asp:HyperLink NavigateUrl='<%# "~/home/tour.aspx?id=" + Eval("Id") %>' runat="server" CssClass="ml-3" Text='<%# Eval("Title") %>' />
                                                                 </li>
                                                             </ItemTemplate>
                                                         </asp:ListView>
@@ -179,6 +176,28 @@
                 <asp:ContentPlaceHolder ID="main" runat="server">
                 </asp:ContentPlaceHolder>
             </main>
+            <div class="py-1">
+                <div class="row no-gutters">
+                    <div class="col-4 pr-1">
+                        <img
+                            src="../publics/uploads/banner2.png"
+                            class="img-fluid"
+                            alt="" />
+                    </div>
+                    <div class="col-4 px-1">
+                        <img
+                            src="../publics/uploads/banner2.png"
+                            class="img-fluid"
+                            alt="" />
+                    </div>
+                    <div class="col-4 pl-1">
+                        <img
+                            src="../publics/uploads/banner2.png"
+                            class="img-fluid"
+                            alt="" />
+                    </div>
+                </div>
+            </div>
             <!-- Begin: Footer -->
             <footer>
                 <div class="bg-mid-blue py-30">
