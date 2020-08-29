@@ -42,9 +42,17 @@ namespace BUS
             return countries;
         }
         // Lấy danh sách tour
-        public List<Tour> GetTours(string option = "", int perPage = 6)
+        public List<Tour> GetTours(string option = "", string perPage = "", string query = "", string sortOrder = "")
         {
-            string sql = "Select Top " + perPage + " Tours.*, DepartureName = (Select Title from Locations where Tours.DepartureLocationId = Locations.Id), DestinationName = (Select Title from Locations where Tours.DestinationLocationId = Locations.Id), TimeName = (Select Title from TimeTour where Tours.TimeId = TimeTour.Id), VehicleName = (Select Title from VehicleTour where Tours.VehicleId = VehicleTour.Id), IsNation = (Select IsNation from Countries inner join Locations on Countries.Id = Locations.CountryId where Locations.Id = Tours.DestinationLocationId) from Tours order by Tours.Id desc";
+            string sql = "Select " + perPage + " Tours.*, " +
+                "DepartureName = (Select Title from Locations where Tours.DepartureLocationId = Locations.Id), " +
+                "DestinationName = (Select Title from Locations where Tours.DestinationLocationId = Locations.Id), " +
+                "TimeName = (Select Title from TimeTour where Tours.TimeId = TimeTour.Id), " +
+                "VehicleName = (Select Title from VehicleTour where Tours.VehicleId = VehicleTour.Id), " +
+                "IsNation = (Select IsNation from Countries inner join Locations on Countries.Id = Locations.CountryId where Locations.Id = Tours.DestinationLocationId) " +
+                "from Tours " +
+                query + " " +
+                "order by Tours.Id desc";
 
             List<Tour> tours = new List<Tour>();
             DataTable tb = new DataTable();
@@ -131,12 +139,50 @@ namespace BUS
                         break;
                 }
             }
+            // Sort
+            switch(sortOrder)
+            {
+                case "priceDesc":
+                    for(int i = 0; i < tours.Count - 1; i++)
+                    {
+                        for(int j = i + 1; j < tours.Count; j++)
+                        {
+                            if(tours[i].Price < tours[j].Price)
+                            {
+                                Tour temp = tours[i];
+                                tours[i] = tours[j];
+                                tours[j] = temp;
+                            }
+                        }
+                    }
+                    break;
+                case "priceAsc":
+                    for (int i = 0; i < tours.Count - 1; i++)
+                    {
+                        for (int j = i + 1; j < tours.Count; j++)
+                        {
+                            if (tours[i].Price > tours[j].Price)
+                            {
+                                Tour temp = tours[i];
+                                tours[i] = tours[j];
+                                tours[j] = temp;
+                            }
+                        }
+                    }
+                    break;
+            }
             return tours;
         }
         // Lấy danh sách location
         public DataTable GetLocations(byte isNation = 0)
         {
             string sql = "Select Locations.*, Countries.IsNation from Locations inner join Countries on Locations.CountryId = Countries.Id where Countries.IsNation = " + isNation;
+            return model.GetTable(sql);
+        }
+        // Lấy thông tin location
+        public DataTable GetLocationDetail(string id)
+        {
+            string sql = "Select * from Locations where Id = " + id;
             return model.GetTable(sql);
         }
     }

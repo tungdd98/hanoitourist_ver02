@@ -1385,28 +1385,5 @@
         </div>
     </div>
     <!-- End: Form -->
-
-    <div class="py-1">
-        <div class="row no-gutters">
-            <div class="col-4 pr-1">
-                <img
-                    src="../publics/uploads/banner2.png"
-                    class="img-fluid"
-                    alt="" />
-            </div>
-            <div class="col-4 px-1">
-                <img
-                    src="../publics/uploads/banner2.png"
-                    class="img-fluid"
-                    alt="" />
-            </div>
-            <div class="col-4 pl-1">
-                <img
-                    src="../publics/uploads/banner2.png"
-                    class="img-fluid"
-                    alt="" />
-            </div>
-        </div>
-    </div>
 </asp:Content>
 

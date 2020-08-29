@@ -105,6 +105,7 @@
     <Content Include="admin\_vendor\main.js" />
     <Content Include="home\about.aspx" />
     <Content Include="home\index.aspx" />
+    <Content Include="home\tour.aspx" />
     <Content Include="publics\css\admin.css" />
     <Content Include="publics\css\home.css" />
     <Content Include="publics\uploads\apphic.png" />
@@ -389,6 +390,13 @@
     <Compile Include="home\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="home\tour.aspx.cs">
+      <DependentUpon>tour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\tour.aspx.designer.cs">
+      <DependentUpon>tour.aspx</DependentUpon>
+    </Compile>
     <Compile Include="layouts\_default.Master.cs">
       <DependentUpon>_default.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -471,11 +479,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-<Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
     <ItemGroup>
       <RoslynFiles Include="$(CscToolPath)\*" />
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
     <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
-</Target>
+  </Target>
 </Project>
