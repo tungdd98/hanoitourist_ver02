@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="loginn.aspx.cs" Inherits="hanoitourist_ver02.loginn" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="hanoitourist_ver02.loginn" %>
 
 <!DOCTYPE html>
 
