@@ -14570,4 +14570,7 @@ a:hover {
 #navbarSupportedContent .dropdown {
     position: static !important;
 }
+.custom-control-label::before {
+    top: 0.15rem !important; 
+}
 /*# sourceMappingURL=main.css.map */

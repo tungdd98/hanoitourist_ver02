@@ -31,7 +31,7 @@ namespace DTO
         public float Sale { get; set; }
         public Tour() { }
 
-        public Tour(string id, string title, string thumbnail, string description, string content, int place, string schedule, string departureName, string destinationName, string timeName, string vehicleName, float originalPrice, float price, float sale, List<DepartureDay> departureDay)
+        public Tour(string id, string title, string thumbnail, string description, string content, int place, string schedule, string departureName, string destinationName, string timeName, string vehicleName, float originalPrice, float price, float sale, List<DepartureDay> departureDay, List<PriceTour> priceTour)
         {
             Id = id;
             Title = title;
@@ -48,6 +48,7 @@ namespace DTO
             Price = price;
             Sale = sale;
             DepartureDay = departureDay;
+            PriceTour = priceTour;
         }
     }
 }
