@@ -41,7 +41,6 @@ namespace DAL
             con.Open();
             SqlCommand cmd = new SqlCommand(sql, con);
             int count = (int)cmd.ExecuteScalar();
-
             return count > 0;
         }
     }

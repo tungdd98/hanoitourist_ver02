@@ -115,6 +115,7 @@
     <Content Include="home\index.aspx" />
     <Content Include="home\tour.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="loginn.aspx" />
     <Content Include="publics\css\admin.css" />
     <Content Include="publics\css\home.css" />
     <Content Include="publics\uploads\apphic.png" />
@@ -483,6 +484,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginn.aspx.cs">
+      <DependentUpon>loginn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginn.aspx.designer.cs">
+      <DependentUpon>loginn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
