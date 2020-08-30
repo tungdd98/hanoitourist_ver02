@@ -50,6 +50,7 @@
     <Compile Include="CustomerType.cs" />
     <Compile Include="TimeTour.cs" />
     <Compile Include="Tour.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="VehicleTour.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

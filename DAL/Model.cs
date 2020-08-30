@@ -10,6 +10,7 @@ namespace DAL
 {
     public class Model
     {
+        //DESKTOP-8SQIKLE\SQLEXPRESS
         Config config = new Config();
         public SqlConnection GetConnect()
         {
