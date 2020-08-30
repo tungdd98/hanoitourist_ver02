@@ -34,14 +34,14 @@ namespace BUS
             string sql = "Update Users set Name = N'" + name + "', Nation = '" + Nation + "'," + "Address = '" + Address + "'," + " Phone = '" + Phone + "'," + " Email = '" + Email + "'," + " Content = '" + Content + "' where Id = " + id;
             model.Execute(sql);
         }
-        public DataTable Search(string username, string password)
+        public DataTable Search(string email, string password)
         {
-            string sql = "select * from Users where Phone = '" + username + "' and Password = '" + password + "'";
+            string sql = "select * from Users where Email = '" + email + "' and Password = '" + password + "'";
             return model.GetTable(sql);
         }
-        public bool checkRule(string username)
+        public bool checkRule(string email)
         {
-            string sql = "select * from Users where Phone= '" + username + "' and Permission = 1";
+            string sql = "select * from Users where Email= '" + email + "' and Permission = 1";
             return model.CheckExits(sql);
         }
         public DataTable GetRecord(int id)

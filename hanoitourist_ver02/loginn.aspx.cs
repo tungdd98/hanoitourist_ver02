@@ -23,7 +23,7 @@ namespace hanoitourist_ver02
             if (check != null)
             {
                 int rule = Int32.Parse(check.Rows[0]["Permission"].ToString());
-                Session["UserName"] = name.Text;
+                Session["Email"] = name.Text;
                 if (rule == 1)
                 {
                     Response.Redirect("admin/dashboard/index.aspx");

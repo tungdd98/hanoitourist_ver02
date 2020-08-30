@@ -114,7 +114,6 @@
     <Content Include="home\about.aspx" />
     <Content Include="home\index.aspx" />
     <Content Include="home\tour.aspx" />
-    <Content Include="login.aspx" />
     <Content Include="loginn.aspx" />
     <Content Include="publics\css\admin.css" />
     <Content Include="publics\css\home.css" />
@@ -477,13 +476,6 @@
     </Compile>
     <Compile Include="layouts\_admin.Master.designer.cs">
       <DependentUpon>_admin.Master</DependentUpon>
-    </Compile>
-    <Compile Include="login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="loginn.aspx.cs">
       <DependentUpon>loginn.aspx</DependentUpon>

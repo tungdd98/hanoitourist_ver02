@@ -18,9 +18,9 @@ namespace hanoitourist_ver02.layouts
             {
                 LoadNavigation();
             }
-            if (Session["UserName"] != null)
+            if (Session["Email"] != null)
             {
-                userLogin.Text = Session["UserName"].ToString();
+                userLogin.Text = Session["Email"].ToString();
                 register.Visible = false;
                 login.Visible = false;
                 userLogin.Visible = true;

@@ -11,15 +11,15 @@ namespace hanoitourist_ver02.layouts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserName"] != null)
+            if (Session["Email"] != null)
             {
-                userName.Text = Session["UserName"].ToString();
+                userName.Text = Session["Email"].ToString();
             }
         }
        
         protected void Button1_Click1(object sender, EventArgs e)
         {
-            Session["UserName"] = null;
+            Session["Email"] = null;
             Response.Redirect("~/home/index.aspx");
         }
     }

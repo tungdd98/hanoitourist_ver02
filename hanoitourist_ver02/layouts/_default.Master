@@ -71,7 +71,7 @@
                             
                             <asp:HyperLink NavigateUrl="~/register.aspx" runat="server" Text="Đăng ký" ID="register" CssClass="btn btn-sm btn-outline-warning px-3" />
                             <asp:HyperLink NavigateUrl="~/loginn.aspx" runat="server" Text="Đăng nhập" ID ="login" CssClass="btn btn-sm btn-warning text-white px-3" />
-                            <asp:HyperLink NavigateUrl="~/loginn.aspx" runat="server" Text="Đăng nhập" ID ="userLogin" CssClass="btn btn-sm btn-warning text-white px-3" />
+                            <asp:Label NavigateUrl="~/loginn.aspx" runat="server" Text="Đăng nhập" ID ="userLogin" CssClass="" />
                             <asp:Button ID="logout" runat="server" CssClass="btn btn-sm btn-warning text-white px-3" OnClick="Button1_Click" Text="Đăng xuất" />
                         </div>
                     </div>
