@@ -109,6 +109,7 @@
     <Content Include="admin\_vendor\main.js" />
     <Content Include="home\about.aspx" />
     <Content Include="home\index.aspx" />
+    <Content Include="home\search.aspx" />
     <Content Include="home\tour.aspx" />
     <Content Include="login.aspx" />
     <Content Include="publics\css\admin.css" />
@@ -423,6 +424,13 @@
     </Compile>
     <Compile Include="home\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\search.aspx.cs">
+      <DependentUpon>search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\search.aspx.designer.cs">
+      <DependentUpon>search.aspx</DependentUpon>
     </Compile>
     <Compile Include="home\tour.aspx.cs">
       <DependentUpon>tour.aspx</DependentUpon>

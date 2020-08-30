@@ -16,10 +16,13 @@
             </ol>
         </div>
     </nav>
+    <!-- End: Breadcrumbs -->
+
     <div class="container">
-        <h3 class="text-uppercase"><asp:Label Text="" runat="server" ID="title" /></h3>
+        <h3 class="text-uppercase">
+            <asp:Label Text="" runat="server" ID="title" /></h3>
         <div>
-           <asp:Label Text="" runat="server" ID="description" />
+            <asp:Label Text="" runat="server" ID="description" />
         </div>
         <div class="my-4 d-flex align-items-center justify-content-between">
             <h4>Danh sách tour</h4>
@@ -129,5 +132,5 @@
         </div>
         <%}%>
     </div>
-    <!-- End: Breadcrumbs -->
+
 </asp:Content>

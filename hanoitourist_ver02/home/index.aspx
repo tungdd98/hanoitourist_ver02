@@ -49,6 +49,7 @@
             <span class="sr-only">Next</span>
         </a>
         <!-- Begin: Search -->
+
         <div class="position-absolute w-100" style="bottom: 10px;">
             <div class="pb-20">
                 <div class="container bg-white p-20 rounded">
@@ -121,33 +122,26 @@
                                 </asp:DropDownList>
                             </div>
                             <div class="col">
-                                <input
-                                    type="text"
-                                    id="datepicker"
-                                    class="form-control font-14 rounded-0 border-right-0"
-                                    placeholder="Ngày khởi hành" />
+                                <asp:TextBox ID="startDay" runat="server" CssClass="form-control font-14 rounded-0 border-right-0" type="date" placeholder="Ngày khởi hành"></asp:TextBox>
                             </div>
                             <div class="col">
                                 <asp:DropDownList ID="dropPrice" runat="server" CssClass="form-control rounded-0 border-right-0 font-14" AppendDataBoundItems="true">
                                     <asp:ListItem Text="Khoảng giá" Value=""></asp:ListItem>
-                                    <asp:ListItem Text="Nhỏ hơn 3 triệu" Value="0"></asp:ListItem>
-                                    <asp:ListItem Text="Từ 3 triệu - 10 triệu" Value="1"></asp:ListItem>
-                                    <asp:ListItem Text="Từ 10 triệu - 25 triệu" Value="2"></asp:ListItem>
-                                    <asp:ListItem Text="Trên 25 triệu" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="Nhỏ hơn 3 triệu" Value="priceUnder3m"></asp:ListItem>
+                                    <asp:ListItem Text="Từ 3 triệu - 10 triệu" Value="price3mTo10m"></asp:ListItem>
+                                    <asp:ListItem Text="Từ 10 triệu - 25 triệu" Value="price10mTo25m"></asp:ListItem>
+                                    <asp:ListItem Text="Trên 25 triệu" Value="priceOver25m"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                             <div class="col">
-                                <button
-                                    class="btn btn-warning text-white w-100 el-weight-bold text-uppercase rounded-0 font-14">
-                                    <i class="fas fa-search"></i>
-                                    <span>Tìm kiếm</span>
-                                </button>
+                                <asp:Button ID="Button1" runat="server" Text="Tìm kiếm" CssClass="btn btn-warning text-white w-100 el-weight-bold text-uppercase rounded-0 font-14" OnClick="Button1_Click1" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- End: Search -->
     </div>
     <!-- End: Slide -->
@@ -1356,7 +1350,6 @@
                                     <span class="text-danger">*</span>:</label>
                         <input
                             type="text"
-                            required
                             class="form-control font-14"
                             id="form_name"
                             placeholder="Nhập họ và tên bạn" />
@@ -1367,7 +1360,6 @@
                                     <span class="text-danger">*</span>:</label>
                         <input
                             type="email"
-                            required
                             class="form-control font-14"
                             id="form_email"
                             placeholder="Nhập email của bạn" />
@@ -1376,7 +1368,6 @@
                         <label for="form_phone">Số điện thoại :</label>
                         <input
                             type="text"
-                            required
                             class="form-control font-14"
                             id="form_phone"
                             placeholder="Nhập số điện thoại của bạn" />
