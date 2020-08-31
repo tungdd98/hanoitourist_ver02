@@ -90,8 +90,13 @@
                             </a>
                         </div>
                         <div>
-                            <asp:HyperLink NavigateUrl="~/register.aspx" runat="server" Text="Đăng ký" CssClass="btn btn-sm btn-outline-warning px-3" />
-                            <asp:HyperLink NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" CssClass="btn btn-sm btn-warning text-white px-3" />
+                            
+                            <asp:HyperLink NavigateUrl="~/register.aspx" runat="server" Text="Đăng ký" ID="register" CssClass="btn btn-sm btn-outline-warning px-3" />
+                            <asp:HyperLink NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" ID ="login" CssClass="btn btn-sm btn-warning text-white px-3" />
+                            <asp:Label NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" ID ="userLogin" CssClass="" />
+                            <asp:HyperLink NavigateUrl="~/logout.aspx" runat="server" Text="home"  CssClass="btn btn-sm btn-warning text-white px-3" ID="logout">
+                                     Đăng xuất
+                            </asp:HyperLink>
                         </div>
                     </div>
                 </div>

@@ -27,7 +27,9 @@ namespace hanoitourist_ver02.admin.user
             dto.Phone = phone.Text;
             dto.Email = email.Text;
             dto.Content = content.Text;
-            if(passwords.Text == cfPasswords.Text)
+            DataTable da =  bus.Search(email.Text, passwords.Text);
+
+            if(passwords.Text == cfPasswords.Text && da == null)
             {
                 dto.Password = passwords.Text;
                 bus.Insert(dto.Name, dto.Password, dto.Nation, dto.Address, dto.Phone, dto.Email, dto.Content);

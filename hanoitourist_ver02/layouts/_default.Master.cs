@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BUS;
+using DTO;
 
 namespace hanoitourist_ver02.layouts
 {
@@ -13,9 +14,24 @@ namespace hanoitourist_ver02.layouts
         HomeBus bus = new HomeBus();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 LoadNavigation();
+            }
+            if (Session["Email"] != null)
+            {
+                userLogin.Text = Session["Email"].ToString();
+                register.Visible = false;
+                login.Visible = false;
+                userLogin.Visible = true;
+                logout.Visible = true;
+            }
+            else
+            {
+                userLogin.Visible = false;
+                logout.Visible = false;
+                register.Visible = true;
+                login.Visible = true;
             }
         }
         public void LoadNavigation()
@@ -26,6 +42,10 @@ namespace hanoitourist_ver02.layouts
             // Menu du lịch nước ngoài
             ListNav2.DataSource = bus.GetCountries(1);
             ListNav2.DataBind();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }
