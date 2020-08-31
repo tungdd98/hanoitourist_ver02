@@ -12,6 +12,28 @@
     <script src="../_vendor/bootstrap.bundle.js"></script>
     <script src="../_vendor/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        // Cấu hình thông báo
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+        });
+
+        const swAlert = (title = "", icon = "success") => {
+            Toast.fire({
+                icon,
+                title,
+            });
+        }
+
+    </script>
 </head>
 <body class="bg-gradient-primary">
     <form id="form1" runat="server">
@@ -29,38 +51,29 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name"/>
+                                        <asp:TextBox runat="server" type="text" class="form-control form-control-user" ID="fullName" placeholder="Họ và tên" required="true" pattern="[^0-9]*" title="Họ tên không được có số" />
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name"/>
+                                        <asp:TextBox runat="server" type="text" class="form-control form-control-user" ID="phoneNumber" placeholder="Số điện thoại" required="true" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address"/>
+                                    <asp:TextBox runat="server" type="email" class="form-control form-control-user" ID="email" placeholder="Email" required="true" />
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password"/>
+                                        <asp:TextBox runat="server" type="password" class="form-control form-control-user" ID="password" placeholder="Mật khẩu" required="true" pattern=".{6,}"  title="Mật khẩu tối thiểu 6 kí tự" />
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password"/>
+                                        <asp:TextBox runat="server" type="password" class="form-control form-control-user" ID="cfPassword" placeholder="Xác nhận mật khẩu" required="true" /><br />
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">Register Account
-                </a>
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i>Register with Google
-                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i>Register with Facebook
-                </a>
-                                <hr>
+                                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Đăng kí" class="btn btn-primary btn-user btn-block" />
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    <asp:HyperLink runat="server" class="small" NavigateUrl="~/home/index.aspx">Quay về trang chủ</asp:HyperLink>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="login.html">Already have an account? Login!</a>
+                                    <asp:HyperLink runat="server" class="small" NavigateUrl="~/login.aspx">Đăng nhập</asp:HyperLink>
                                 </div>
                             </div>
                         </div>

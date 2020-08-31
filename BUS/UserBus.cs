@@ -17,10 +17,17 @@ namespace BUS
             string sql = "Select * from Users";
             return model.GetTable(sql);
         }
-        public void Insert(string password, string name, string Nation, string Address, string Phone, string Email, string Content)
+        public bool Insert(string password, string name, string Nation, string Address, string Phone, string Email, string Content)
         {
             string sql = "Insert into Users values(N'" + password + "',N'" + name + "',N'" + Nation + "','" + Address + "',N'" + Phone + "','" + Email + "','" + Content + "',"+ 0 + ")";
+
+            string check = "Select count(*) from Users where Email = '" + Email + "'";
+            if (model.CheckExits(check))
+            {
+                return false;
+            }
             model.Execute(sql);
+            return true;
         }
 
         public void Delete(int id)
