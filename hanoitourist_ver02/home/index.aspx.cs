@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BUS;
 using DTO;
+using DAL;
 
 namespace hanoitourist_ver02.home
 {
@@ -73,6 +75,22 @@ namespace hanoitourist_ver02.home
             dropTime.DataValueField = "Id";
             dropTime.DataTextField = "Title";
             dropTime.DataBind();
+        }
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            string departureId = dropDiemXuatPhat.SelectedValue;
+            string destinationId = dropDiemDen.SelectedValue;
+            string time = dropTime.SelectedValue;
+            string date = startDay.Text;
+            string price = dropPrice.SelectedValue;
+            if (departureId == "" || destinationId == "")
+            {
+                Response.Write("<script>alert('Vui lòng điền đủ thông tin điểm khởi hành và điểm đến.')</script>");
+            }
+            else
+            {
+                Response.Redirect("~/home/search.aspx?departureId=" + departureId + "&destinationId=" + destinationId + "&time=" + time + "&date=" + date + "&price=" + price);
+            }
         }
     }
 }
