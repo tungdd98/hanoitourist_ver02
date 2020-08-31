@@ -6,7 +6,7 @@
     <!-- Begin: Breadcrumbs -->
     <nav aria-label="breadcrumb" class="bg-light">
         <div class="container">
-            <ol class="breadcrumb bg-white px-0">
+            <ol class="breadcrumb px-0 bg-light">
                 <li class="breadcrumb-item">
                     <asp:HyperLink NavigateUrl="~/home/index.aspx" runat="server" Text="Trang chủ" />
                 </li>

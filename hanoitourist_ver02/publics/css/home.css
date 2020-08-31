@@ -14573,4 +14573,8 @@ a:hover {
 .custom-control-label::before {
     top: 0.15rem !important; 
 }
+.el-custom-checkbox label {
+    margin-bottom: 0 !important;
+    margin-left: 5px;
+}
 /*# sourceMappingURL=main.css.map */
