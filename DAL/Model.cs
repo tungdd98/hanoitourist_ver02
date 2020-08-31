@@ -23,6 +23,8 @@ namespace DAL
             SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
             DataTable table = new DataTable();
             adapter.Fill(table);
+            con.Close();
+            con.Close();
 
             return table;
         }
@@ -34,6 +36,7 @@ namespace DAL
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             cmd.Clone();
+            con.Close();
         }
         public bool CheckExits(string sql)
         {
@@ -41,6 +44,7 @@ namespace DAL
             con.Open();
             SqlCommand cmd = new SqlCommand(sql, con);
             int count = (int)cmd.ExecuteScalar();
+
             return count > 0;
         }
     }

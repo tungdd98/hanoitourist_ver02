@@ -49,19 +49,13 @@
                                         <hr />
                                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Đăng nhập" class="btn btn-primary btn-user btn-block" />
                                         <br />
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i>
-                                            Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i>Login with Facebook
-                                        </a>
                                         <hr />
+
                                         <div class="text-center">
-                                            <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                            <asp:HyperLink runat="server" class="small" NavigateUrl="~/home/index.aspx">Quay về trang chủ</asp:HyperLink>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="register.html">Create an Account!</a>
+                                            <a class="small" href="register.aspx">Đăng kí</a>
                                         </div>
                                     </div>
                                 </div>

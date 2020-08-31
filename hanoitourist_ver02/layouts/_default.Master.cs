@@ -46,8 +46,6 @@ namespace hanoitourist_ver02.layouts
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Session["UserName"] = null;
-            Response.Redirect("index.aspx");
         }
     }
 }

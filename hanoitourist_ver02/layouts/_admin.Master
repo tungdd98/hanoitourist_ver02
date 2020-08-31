@@ -180,13 +180,10 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in text-center" aria-labelledby="userDropdown">
-
-                                <form id="form1" runat="server">
-                                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text=" Đăng Xuất" CssClass="btn btn-sm btn-warning text-white px-3" href="#" data-toggle="modal" data-target="#logoutModal" />
-                                </form>
+                                 <asp:HyperLink NavigateUrl="~/logout.aspx" runat="server" Text="home"  CssClass="btn btn-sm btn-warning text-white px-3">
+                                     Đăng xuất
+                            </asp:HyperLink>
                             </div>
-
-
 
                         </li>
 
