@@ -20,7 +20,7 @@ namespace hanoitourist_ver02.layouts
             }
             if (Session["Email"] != null)
             {
-                userLogin.Text = Session["Email"].ToString();
+                userLogin.Text = Session["Name"].ToString();
                 register.Visible = false;
                 login.Visible = false;
                 userLogin.Visible = true;
@@ -42,10 +42,6 @@ namespace hanoitourist_ver02.layouts
             // Menu du lịch nước ngoài
             ListNav2.DataSource = bus.GetCountries(1);
             ListNav2.DataBind();
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
         }
     }
 }
