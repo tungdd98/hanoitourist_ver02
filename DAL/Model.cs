@@ -24,7 +24,6 @@ namespace DAL
             DataTable table = new DataTable();
             adapter.Fill(table);
             con.Close();
-            con.Close();
 
             return table;
         }
