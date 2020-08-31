@@ -51,22 +51,22 @@ namespace hanoitourist_ver02.home
         protected global::System.Web.UI.WebControls.Label date;
 
         /// <summary>
-        /// buttonDesc control.
+        /// keySearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonDesc;
+        protected global::System.Web.UI.WebControls.Label keySearch;
 
         /// <summary>
-        /// buttonAsc control.
+        /// textCountResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buttonAsc;
+        protected global::System.Web.UI.WebControls.Label textCountResult;
 
         /// <summary>
         /// tourSearch control.

@@ -6,7 +6,7 @@
     <!-- Begin: Breadcrumbs -->
     <nav aria-label="breadcrumb" class="bg-light">
         <div class="container">
-            <ol class="breadcrumb bg-white px-0">
+            <ol class="breadcrumb bg-light px-0">
                 <li class="breadcrumb-item">
                     <asp:HyperLink NavigateUrl="~/home/index.aspx" runat="server" Text="Trang chủ" />
                 </li>
@@ -68,20 +68,15 @@
                 </div>
             </div>
             <div class="col-9">
-                <div class="font-16">
-                    Kết quả tìm kiếm tour du lịch từ 
-                        <strong class="text-mid-blue">
-                            <asp:Label ID="departureName" Text="" runat="server" />
-                        </strong>đến 
-                        <strong class="text-mid-blue">
-                            <asp:Label ID="destinationName" Text="" runat="server" />
-                        </strong> 
-                        <asp:Label ID="date" Text="" runat="server" />
+                <div class="font-16 mb-4">
+                    Kết quả tìm kiếm tour du lịch
+                    <asp:Label ID="departureName" Text="" runat="server" />
+                    <asp:Label ID="destinationName" Text="" runat="server" />
+                    <asp:Label ID="date" Text="" runat="server" />
+                    <asp:Label ID="keySearch" Text="" runat="server" />
                 </div>
-                <div class="d-flex align-items-center my-4">
-                    <span>Sắp xếp theo</span>
-                    <asp:Button Text="Giá tăng dần" runat="server" CssClass="btn btn-outline-mid-blue mx-2" ID="buttonDesc" />
-                    <asp:Button Text="Giá giảm dần" runat="server" CssClass="btn btn-outline-mid-blue mx-2" ID="buttonAsc" />
+                <div class="mb-1">
+                    <asp:Label Text="" ID="textCountResult" runat="server" /> kết quả
                 </div>
                 <div class="row no-gutters ">
                     <asp:ListView runat="server" ID="tourSearch">
