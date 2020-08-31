@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="form-group">
                                             <asp:Label Text="Mật Khẩu" runat="server" />
-                                            <asp:TextBox ID="passwords" runat="server" CssClass="form-control" type="text" required="true"></asp:TextBox>
+                                            <asp:TextBox ID="passwords" runat="server" CssClass="form-control" type="password" required="true"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">

@@ -33,10 +33,6 @@ namespace hanoitourist_ver02
                     Response.Redirect("home/index.aspx");
                 }
             }
-            else
-            {
-
-            }
         }
     }
 }
