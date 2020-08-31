@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BUS;
+using DAL;
 
 namespace hanoitourist_ver02.admin.countries
 {
@@ -13,7 +14,7 @@ namespace hanoitourist_ver02.admin.countries
         CountryBus bus = new CountryBus();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 ShowItems();
             }

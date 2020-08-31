@@ -33,18 +33,12 @@
                                             <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                         </div>
                                         <div class="form-group">
-                                            <asp:Label Text="Họ Tên" runat="server" />
-                                            <asp:TextBox ID="name" runat="server" CssClass="form-control" type="text" required="true"></asp:TextBox>
+                                            <asp:Label Text="Email" runat="server" />
+                                            <asp:TextBox ID="name" runat="server" CssClass="form-control" type="email" required="true"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <asp:Label Text="Mật Khẩu" runat="server" />
                                             <asp:TextBox ID="passwords" runat="server" CssClass="form-control" type="password" required="true"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck" />
-                                                <label class="custom-control-label" for="customCheck">Remember Me</label>
-                                            </div>
                                         </div>
                                         <hr />
                                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Đăng nhập" class="btn btn-primary btn-user btn-block" />
@@ -55,7 +49,7 @@
                                             <asp:HyperLink runat="server" class="small" NavigateUrl="~/home/index.aspx">Quay về trang chủ</asp:HyperLink>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="register.aspx">Đăng kí</a>
+                                            <a class="small" href="register.aspx">Đăng ký</a>
                                         </div>
                                     </div>
                                 </div>
