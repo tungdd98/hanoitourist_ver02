@@ -27,6 +27,9 @@ Create table Users (
 	Content ntext,
 	Permission tinyint default 0,
 )
+select * from Users
+delete Users where Id = 2
+update Users set Permission = 1 where id = 8
 
 Create table Countries (
 	Id int identity(1,1) primary key,
@@ -94,7 +97,8 @@ create table PriceTour (
 	TourId varchar(100) foreign key(TourId) references Tours(Id) on update cascade on delete cascade,
 	Primary key(CustomerTypeId, TourId)
 )
-
+select * from PriceTour
+Select Price, OriginalPrice, Title from PriceTour inner join CustomerType on CustomerType.Id = PriceTour.CustomerTypeId where TourId ='T01'
 create table OrderDetail (
 	Id int identity(1,1) primary key, 
 	OrderId int,
@@ -102,4 +106,5 @@ create table OrderDetail (
 	CustomerTypeId int,
 	Quantity int 
 )
+
 

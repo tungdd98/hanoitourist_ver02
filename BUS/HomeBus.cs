@@ -68,29 +68,33 @@ namespace BUS
                 float originalPrice = float.Parse(originalPriceTour.Rows[0]["OriginalPrice"].ToString());
 
                 float sale = originalPrice > price ? 100 - (price / originalPrice) * 100 : 0;
-
+                // Lấy danh sách giá
+                DataTable tbPriceTour = model.GetTable("Select Price, OriginalPrice, Title from PriceTour inner join CustomerType on CustomerType.Id = PriceTour.CustomerTypeId where TourId = '" + row["Id"] + "'");
+                List<PriceTour> priceTours = new List<PriceTour>();
+                foreach (DataRow rowPriceTour in tbPriceTour.Rows)
+                {
+                    priceTours.Add(new PriceTour(
+                            float.Parse((rowPriceTour["OriginalPrice"].ToString())),
+                            float.Parse((rowPriceTour["Price"].ToString())),
+                            rowPriceTour["Title"].ToString()
+                        ));
+                }
                 // Lấy ngày tháng đặt tour
                 DataTable tbDepartureDay = model.GetTable("Select StartDay from DepartureDay where TourId = '" + row["Id"] + "' order by StartDay desc");
                 List<DepartureDay> departureDays = new List<DepartureDay>();
                 foreach (DataRow rowDepartureDay in tbDepartureDay.Rows)
                 {
                     departureDays.Add(new DepartureDay(
-                            DateTime.Parse(rowDepartureDay["StartDay"].ToString())
+                            DateTime.Parse(rowDepartureDay["StartDay"].ToString()),
+                            priceTours
                         ));
                 }
                 // Lấy khu vực
                 byte isNation = byte.Parse(row["IsNation"].ToString());
 
-                // Lấy danh sách giá
-                DataTable tbPriceTour = model.GetTable("Select Price, OriginalPrice from PriceTour where TourId = '" + row["Id"] + "'");
-                List<PriceTour> priceTours = new List<PriceTour>();
-                foreach (DataRow rowPriceTour in tbPriceTour.Rows)
-                {
-                    priceTours.Add(new PriceTour(
-                            float.Parse((rowPriceTour["OriginalPrice"].ToString())),
-                            float.Parse((rowPriceTour["Price"].ToString()))
-                        ));
-                }
+              
+                //lấy danh sách chi tiết giá tour
+
 
                 Tour tour = new Tour(
                         row["Id"].ToString(),

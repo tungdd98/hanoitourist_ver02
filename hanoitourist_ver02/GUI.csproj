@@ -115,6 +115,7 @@
     <Content Include="home\index.aspx" />
     <Content Include="home\search.aspx" />
     <Content Include="home\tour.aspx" />
+    <Content Include="home\tour_detail.aspx" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="publics\css\admin.css" />
@@ -471,6 +472,13 @@
     </Compile>
     <Compile Include="home\tour.aspx.designer.cs">
       <DependentUpon>tour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\tour_detail.aspx.cs">
+      <DependentUpon>tour_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\tour_detail.aspx.designer.cs">
+      <DependentUpon>tour_detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="layouts\_default.Master.cs">
       <DependentUpon>_default.Master</DependentUpon>

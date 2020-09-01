@@ -12,12 +12,14 @@ namespace DTO
         public float Price { get; set; }
         public int CustomerTypeId { get; set; }
         public string TourId { get; set; }
+        public string CustomerName { get; set; }
         public PriceTour() { }
 
-        public PriceTour(float originalPrice, float price)
+        public PriceTour(float originalPrice, float price, string customerName)
         {
             OriginalPrice = originalPrice;
             Price = price;
+            CustomerName = customerName;
         }
     }
 }
