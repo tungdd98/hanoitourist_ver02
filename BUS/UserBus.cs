@@ -19,6 +19,7 @@ namespace BUS
         }
         public bool Insert(string password, string name, string Nation, string Address, string Phone, string Email, string Content)
         {
+            password = Helper.GetMD5(password);
             string sql = "Insert into Users values(N'" + password + "',N'" + name + "',N'" + Nation + "','" + Address + "',N'" + Phone + "','" + Email + "','" + Content + "',"+ 0 + ")";
 
             string check = "Select count(*) from Users where Email = '" + Email + "'";

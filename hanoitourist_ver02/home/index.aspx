@@ -59,43 +59,18 @@
                         Tìm kiếm tour
                     </div>
                     <div class="d-flex align-items-center">
-                        <div class="form-check mr-4">
-                            <input
-                                class="form-check-input"
-                                type="radio"
-                                name="exampleRadios"
-                                id="exampleRadios"
-                                value="option1"
-                                checked />
-                            <label
-                                class="form-check-label text-capitalize"
-                                for="exampleRadios">
-                                Tour trong nước
-                            </label>
+                        <div class="d-flex align-items-center el-custom-checkbox">
+                            <asp:RadioButton Text="Tour trong nước" runat="server" ID="radioTourNation" GroupName="tourLocation" Checked="true" />
                         </div>
-                        <div class="form-check">
-                            <input
-                                class="form-check-input"
-                                type="radio"
-                                name="exampleRadios"
-                                id="exampleRadios1"
-                                value="option1"
-                                checked />
-                            <label
-                                class="form-check-label text-capitalize"
-                                for="exampleRadios1">
-                                tour nước ngoài
-                            </label>
+                        <div class="d-flex align-items-center el-custom-checkbox ml-3">
+                            <asp:RadioButton Text="Tour nước ngoài" runat="server" ID="radioTourEnterNation" GroupName="tourLocation" />
                         </div>
                         <div
                             class="ml-auto overflow-hidden rounded d-flex border align-items-center">
-                            <input
-                                type="text"
-                                class="form-control font-14 border-0"
-                                placeholder="Tìm nhanh..." />
-                            <div class="py-2 px-3 border bg-gray-1">
+                            <asp:TextBox runat="server" placeholder="Tìm nhanh..." ID="textSearch" CssClass="form-control font-14 border-0" />
+                            <asp:LinkButton ID="btnSearch" runat="server" CssClass="py-2 px-3 border bg-gray-1" OnClick="Button_Search">
                                 <i class="fas fa-search"></i>
-                            </div>
+                            </asp:LinkButton>
                         </div>
                     </div>
                     <div class="mt-3 el-search">
