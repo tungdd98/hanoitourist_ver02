@@ -289,11 +289,10 @@
                                         </div>
                                     </div>
                                     <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                        <a
-                                            href="#"
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                             class="text-uppercase text-dark el-weight-bold text-truncate d-block">
                                             <%# Eval("Title") %>
-                                        </a>
+                                        </asp:HyperLink>
                                         <div
                                             class="d-flex justify-content-between align-items-center py-2">
                                             <div class="font-13">
@@ -473,11 +472,10 @@
                                         </div>
                                     </div>
                                     <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                        <a
-                                            href="#"
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                             class="text-uppercase text-dark el-weight-bold text-truncate d-block">
                                             <%# Eval("Title") %>
-                                        </a>
+                                        </asp:HyperLink>
                                         <div
                                             class="d-flex justify-content-between align-items-center py-2">
                                             <div class="font-13">
@@ -655,11 +653,10 @@
                                         </div>
                                     </div>
                                     <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                        <a
-                                            href="#"
+                                       <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                             class="text-uppercase text-dark el-weight-bold text-truncate d-block">
                                             <%# Eval("Title") %>
-                                        </a>
+                                        </asp:HyperLink>
                                         <div
                                             class="d-flex justify-content-between align-items-center py-2">
                                             <div class="font-13">
