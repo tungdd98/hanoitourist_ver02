@@ -96,11 +96,11 @@
                                             <asp:ListView runat="server" ID="listPriceDetail" DataSource='<%# Eval("PriceTour") %>'>
                                                 <ItemTemplate>
                                                     <div>
-                                                        Giá người lớn <span class="text-danger"><%# Eval("Price") %></span>
+                                                        Giá <%# Eval("CustomerName")%> <span class="text-danger"><%# Eval("Price") %></span>
                                                     </div>
-                                                    <div>
+                                                  <%--  <div>
                                                         Giá trẻ em <span class="text-danger"><%# Eval("Price") %></span>
-                                                    </div>
+                                                    </div>--%>
                                                 </ItemTemplate>
                                             </asp:ListView>
                                         </div>
