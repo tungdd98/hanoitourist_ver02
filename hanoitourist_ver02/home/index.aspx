@@ -287,7 +287,7 @@
                                                     <div class="ml-1">
                                                         <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                             <ItemTemplate>
-                                                                <div><%# Eval("StartDay", "{0:MMM d}") %></div>
+                                                                <div><%# Eval("StartDay", "{0:dd/MM}") %></div>
                                                             </ItemTemplate>
                                                         </asp:ListView>
                                                     </div>
@@ -302,10 +302,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button
-                                                class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                                Giữ chỗ
-                                            </button>
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
                                         </div>
                                     </div>
                                 </div>
@@ -470,7 +467,7 @@
                                                     <div class="ml-1">
                                                         <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                             <ItemTemplate>
-                                                                <div><%# Eval("StartDay", "{0:MMM d}") %></div>
+                                                                <div><%# Eval("StartDay", "{0:dd/MM}") %></div>
                                                             </ItemTemplate>
                                                         </asp:ListView>
                                                     </div>
@@ -651,7 +648,7 @@
                                                     <div class="ml-1">
                                                         <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                             <ItemTemplate>
-                                                                <div><%# Eval("StartDay", "{0:MMM d}") %></div>
+                                                                <div><%# Eval("StartDay", "{0:dd/MM}") %></div>
                                                             </ItemTemplate>
                                                         </asp:ListView>
                                                     </div>

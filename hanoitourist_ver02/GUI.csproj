@@ -112,6 +112,7 @@
     <Content Include="admin\_vendor\jquery.min.js" />
     <Content Include="admin\_vendor\main.js" />
     <Content Include="home\about.aspx" />
+    <Content Include="home\checkout.aspx" />
     <Content Include="home\index.aspx" />
     <Content Include="home\search.aspx" />
     <Content Include="home\tour.aspx" />
@@ -451,6 +452,13 @@
     </Compile>
     <Compile Include="home\about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="home\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

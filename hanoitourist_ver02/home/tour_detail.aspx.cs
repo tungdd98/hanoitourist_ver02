@@ -14,24 +14,24 @@ namespace hanoitourist_ver02.home
         HomeBus bus = new HomeBus();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string idTour = Request.QueryString["id"].ToString();
+            string id = Request.QueryString["id"].ToString();
             List<Tour> tourDetail = new List<Tour>();
-            tourDetail = bus.GetTours("", "", "where Id ='" + idTour + "'", "", "");
+            tourDetail = bus.GetTours("", "", "where Id = '" + id + "'");
             title.Text = tourDetail[0].Title;
-
-
-
+            textBreadcrumb.Text = tourDetail[0].Title;
             idTourDetail.Text = tourDetail[0].Id;
             startAt.Text = tourDetail[0].DepartureName;
             goTo.Text = tourDetail[0].DestinationName;
-            dateStart.Text = tourDetail[0].DepartureDay[0].StartDay.ToString();
             timeStart.Text = tourDetail[0].TimeName;
             vehicle.Text = tourDetail[0].VehicleName;
             slots.Text = tourDetail[0].Place.ToString();
-            schedule.Text = tourDetail[0].Title;
-            
-            detailSchedule.Text = tourDetail[0].Schedule;
+            schedule.Text = tourDetail[0].Schedule;
+            description.Text = tourDetail[0].Description;
+            content.Text = tourDetail[0].Content;
+            thumbnail.ImageUrl = "~/publics/uploads/tours/" + tourDetail[0].Thumbnail;
 
+            departureDay.DataSource = tourDetail[0].DepartureDay;
+            departureDay.DataBind();
             detailPrice.DataSource = tourDetail[0].DepartureDay;
             detailPrice.DataBind();
         }

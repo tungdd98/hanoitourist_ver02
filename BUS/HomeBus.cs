@@ -61,13 +61,15 @@ namespace BUS
             foreach (DataRow row in tb.Rows)
             {
                 // Lấy giá tour
+                float price = 0,
+                    originalPrice = 0,
+                    sale = 0;
+
                 DataTable priceTour = model.GetTable("Select MIN(Price) as Price from PriceTour where TourId = '" + row["Id"] + "'");
-                float price = float.Parse(priceTour.Rows[0]["Price"].ToString());
-
+                price = float.Parse(priceTour.Rows[0]["Price"].ToString());
                 DataTable originalPriceTour = model.GetTable("Select OriginalPrice from PriceTour where Price = " + price + " and TourId = '" + row["Id"] + "'");
-                float originalPrice = float.Parse(originalPriceTour.Rows[0]["OriginalPrice"].ToString());
-
-                float sale = originalPrice > price ? 100 - (price / originalPrice) * 100 : 0;
+                originalPrice = float.Parse(originalPriceTour.Rows[0]["OriginalPrice"].ToString());
+                sale = originalPrice > price ? 100 - (price / originalPrice) * 100 : 0;
                 // Lấy danh sách giá
                 DataTable tbPriceTour = model.GetTable("Select Price, OriginalPrice, Title from PriceTour inner join CustomerType on CustomerType.Id = PriceTour.CustomerTypeId where TourId = '" + row["Id"] + "'");
                 List<PriceTour> priceTours = new List<PriceTour>();
@@ -80,21 +82,18 @@ namespace BUS
                         ));
                 }
                 // Lấy ngày tháng đặt tour
-                DataTable tbDepartureDay = model.GetTable("Select StartDay from DepartureDay where TourId = '" + row["Id"] + "' order by StartDay desc");
+                DataTable tbDepartureDay = model.GetTable("Select StartDay, StartTime from DepartureDay where TourId = '" + row["Id"] + "' order by StartDay desc");
                 List<DepartureDay> departureDays = new List<DepartureDay>();
                 foreach (DataRow rowDepartureDay in tbDepartureDay.Rows)
                 {
                     departureDays.Add(new DepartureDay(
                             DateTime.Parse(rowDepartureDay["StartDay"].ToString()),
+                            TimeSpan.Parse(rowDepartureDay["StartTime"].ToString()),
                             priceTours
                         ));
                 }
                 // Lấy khu vực
                 byte isNation = byte.Parse(row["IsNation"].ToString());
-
-              
-                //lấy danh sách chi tiết giá tour
-
 
                 Tour tour = new Tour(
                         row["Id"].ToString(),

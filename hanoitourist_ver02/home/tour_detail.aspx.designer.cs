@@ -15,6 +15,15 @@ namespace hanoitourist_ver02.home
     {
 
         /// <summary>
+        /// textBreadcrumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label textBreadcrumb;
+
+        /// <summary>
         /// title control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace hanoitourist_ver02.home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label title;
+
+        /// <summary>
+        /// thumbnail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image thumbnail;
 
         /// <summary>
         /// idTourDetail control.
@@ -51,13 +69,13 @@ namespace hanoitourist_ver02.home
         protected global::System.Web.UI.WebControls.Label goTo;
 
         /// <summary>
-        /// dateStart control.
+        /// departureDay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label dateStart;
+        protected global::System.Web.UI.WebControls.ListView departureDay;
 
         /// <summary>
         /// timeStart control.
@@ -96,13 +114,13 @@ namespace hanoitourist_ver02.home
         protected global::System.Web.UI.WebControls.Label schedule;
 
         /// <summary>
-        /// detailSchedule control.
+        /// description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label detailSchedule;
+        protected global::System.Web.UI.WebControls.Label description;
 
         /// <summary>
         /// detailPrice control.
@@ -112,5 +130,14 @@ namespace hanoitourist_ver02.home
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView detailPrice;
+
+        /// <summary>
+        /// content control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label content;
     }
 }
