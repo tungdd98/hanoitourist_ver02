@@ -28,6 +28,7 @@ namespace hanoitourist_ver02.home
             schedule.Text = tourDetail[0].Schedule;
             description.Text = tourDetail[0].Description;
             content.Text = tourDetail[0].Content;
+            price.Text = tourDetail[0].Price.ToString("#,##");
             thumbnail.ImageUrl = "~/publics/uploads/tours/" + tourDetail[0].Thumbnail;
 
             departureDay.DataSource = tourDetail[0].DepartureDay;
