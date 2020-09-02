@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BUS;
@@ -33,6 +34,7 @@ namespace hanoitourist_ver02.layouts
                 register.Visible = true;
                 login.Visible = true;
             }
+            userOnline.Text = "Số người truy cập : " + Membership.GetNumberOfUsersOnline().ToString();
         }
         public void LoadNavigation()
         {
