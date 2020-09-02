@@ -11,7 +11,7 @@
                     <asp:HyperLink NavigateUrl="~/home/index.aspx" runat="server" Text="Trang chủ" />
                 </li>
                 <li class="breadcrumb-item">
-                    <asp:Label Text="Đêm linh thiêng" runat="server" ID="textBreadcrumb" CssClass="text-uppercase" />
+                    <asp:Label Text="" runat="server" ID="textBreadcrumb" CssClass="text-uppercase" />
                 </li>
             </ol>
         </div>
@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-9">
                 <h2 class="text-uppercase my-3">
-                    <asp:Label runat="server" ID="title" Text="Đêm linh thiêng">
+                    <asp:Label runat="server" ID="title" Text="">
                     </asp:Label>
                 </h2>
                 <asp:Image ImageUrl="" runat="server" ID="thumbnail" CssClass="img-fluid" alt="Responsive image" />
@@ -151,7 +151,9 @@
             <div class="col-3 py-4 mt-5">
                 <div class="border shadow p-3 text-center">
                     <div>Giá chỉ</div>
-                    <div class="font-20 text-danger my-3"><strong>150.000đ</strong></div>
+                    <div class="font-20 text-danger my-3">
+                        <strong><asp:Label Text="" ID="price" runat="server" />đ</strong>
+                    </div>
                     <a href="#" class="btn btn-mid-orange w-100 font-weight-bold text-uppercase text-white py-2">Giữ chỗ</a>
                     <a href="tel:19004518" class="btn btn-outline-mid-blue w-100 d-flex my-3 flex-column">
                         <span class="text-uppercase">đăng ký tư vấn</span>
