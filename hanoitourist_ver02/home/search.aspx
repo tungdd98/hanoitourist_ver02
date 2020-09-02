@@ -143,7 +143,7 @@
                                                     <div class="ml-1">
                                                         <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                             <ItemTemplate>
-                                                                <div><%# Eval("StartDay", "{0:yyyy-MM-dd}") %></div>
+                                                                <div><%# Eval("StartDay", "{0:MM/dd}") %></div>
                                                             </ItemTemplate>
                                                         </asp:ListView>
                                                     </div>

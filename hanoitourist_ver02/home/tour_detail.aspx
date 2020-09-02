@@ -3,59 +3,82 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+    <!-- Begin: Breadcrumbs -->
+    <nav aria-label="breadcrumb" class="bg-light">
+        <div class="container">
+            <ol class="breadcrumb px-0 bg-light">
+                <li class="breadcrumb-item">
+                    <asp:HyperLink NavigateUrl="~/home/index.aspx" runat="server" Text="Trang chủ" />
+                </li>
+                <li class="breadcrumb-item">
+                    <asp:Label Text="Đêm linh thiêng" runat="server" ID="textBreadcrumb" CssClass="text-uppercase" />
+                </li>
+            </ol>
+        </div>
+    </nav>
+    <!-- End: Breadcrumbs -->
     <div class="container">
         <div class="row">
             <div class="col-9">
-                <h2 class="text-uppercase my-30">
-                    <asp:Label runat="server" ID="title">
+                <h2 class="text-uppercase my-3">
+                    <asp:Label runat="server" ID="title" Text="Đêm linh thiêng">
                     </asp:Label>
                 </h2>
-                <img src="../publics/uploads/banner2.png" class="img-fluid" alt="Responsive image">
-                <h3 class="my-20">Thông tin tour:
-                </h3>
-                <div class="border border-dark mb-5">
+                <asp:Image ImageUrl="" runat="server" ID="thumbnail" CssClass="img-fluid" alt="Responsive image" />
+                <h4 class="my-3">Thông tin tour:
+                </h4>
+                <div class="border shadow-sm mb-5">
                     <div class="row px-3 py-4">
                         <div class="col-6">
-                            <p class="font-weight-normal">
-                                <i class="fas fa-qrcode pr-2"></i>Mã Tour:
-                                <asp:Label runat="server" ID="idTourDetail">
-                                </asp:Label>
+                            <p class="d-flex align-items-center">
+                                <i class="fas fa-qrcode pr-2"></i>
+                                Mã Tour:&nbsp;
+                                <asp:Label runat="server" ID="idTourDetail" CssClass="font-weight-bold"></asp:Label>
                             </p>
-                            <p class="font-weight-normal">
-                                <i class="fas fa-map-marker-alt pr-2"></i>Điểm Khởi Hành:
-                                <asp:Label runat="server" ID="startAt">
-                                </asp:Label>
+                            <p class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt pr-2"></i>
+                                Điểm Khởi Hành:&nbsp;
+                                <asp:Label runat="server" ID="startAt" CssClass="font-weight-bold"></asp:Label>
                             </p>
-                            <p class="font-weight-normal">
-                                <i class="fas fa-map-marker-alt pr-2"></i>Điểm Đến: 
-                                <asp:Label runat="server" ID="goTo">
-                                </asp:Label>
+                            <p class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt pr-2"></i>
+                                Điểm Đến:&nbsp;
+                                <asp:Label runat="server" ID="goTo" CssClass="font-weight-bold"></asp:Label>
                             </p>
-                            <p class="font-weight-normal">
-                                <i class="far fa-calendar-alt pr-2"></i>Ngày Khởi Hành:
-                                <asp:Label runat="server" ID="dateStart">
-                                </asp:Label>
-                            </p>
+                            <div class="d-flex">
+                                <div class="d-flex align-items-center">
+                                    <i class="far fa-calendar-alt pr-2"></i>
+                                    <span>Ngày Khởi Hành:&nbsp;</span>
+                                </div>
+                                <div class="font-weight-bold">
+                                    <asp:ListView runat="server" ID="departureDay">
+                                        <ItemTemplate>
+                                            <span><%# Eval("StartDay", "{0:dd/MM}") %></span>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-6">
-                            <p class="font-weight-normal">
-                                <i class="far fa-clock pr-2"></i>Thời Gian:
-                                <asp:Label runat="server" ID="timeStart">
-                                </asp:Label>
+                            <p class="d-flex align-items-center">
+                                <i class="far fa-clock pr-2"></i>
+                                Thời Gian:&nbsp;
+                                <asp:Label runat="server" ID="timeStart" CssClass="font-weight-bold"></asp:Label>
                             </p>
-                            <p class="font-weight-normal">
-                                <i class="fas fa-user-alt pr-2"></i>Phương Tiện:
-                                <asp:Label runat="server" ID="vehicle">
-                                </asp:Label>
+                            <p class="d-flex align-items-center">
+                                <i class="fas fa-user-alt pr-2"></i>
+                                Phương Tiện:&nbsp;
+                                <asp:Label runat="server" ID="vehicle" CssClass="font-weight-bold"></asp:Label>
                             </p>
-                            <p class="font-weight-normal">
-                                <i class="fas fa-user-alt pr-2"></i>Số chỗ trống:
-                                <asp:Label runat="server" ID="slots">
-                                </asp:Label>
+                            <p class="d-flex align-items-center">
+                                <i class="fas fa-user-alt pr-2"></i>
+                                Số chỗ trống:&nbsp;
+                                <asp:Label runat="server" ID="slots" CssClass="font-weight-bold"></asp:Label>
                             </p>
-                            <p class="font-weight-normal">
-                                <i class="far fa-calendar-alt pr-2"></i>Lịch Trình:<asp:Label runat="server" ID="schedule">
-                                </asp:Label>
+                            <p class="d-flex align-items-center">
+                                <i class="far fa-calendar-alt pr-2"></i>
+                                Lịch Trình:&nbsp;
+                                <asp:Label runat="server" ID="schedule" CssClass="font-weight-bold"></asp:Label>
                             </p>
                         </div>
                     </div>
@@ -63,9 +86,9 @@
                 <div class="cart">
                 </div>
                 <nav>
-                    <div class="nav nav-tabs bg-primary d-flex justify-content-around p-3" id="nav-tab" role="tablist">
+                    <div class="nav nav-tabs bg-mid-blue d-flex justify-content-around p-3 text-uppercase" id="nav-tab" role="tablist">
                         <a class="btn btn-light text-primary" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                            role="tab" aria-controls="nav-home" aria-selected="true">Giới Thiệu lịch trình</a>
+                            role="tab" aria-controls="nav-home" aria-selected="true">Giới thiệu lịch trình</a>
                         <a class="btn btn-light text-primary" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
                             role="tab" aria-controls="nav-profile" aria-selected="false">Bảng giá chi tiết</a>
                         <a class="btn btn-light text-primary" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
@@ -74,68 +97,71 @@
                             role="tab" aria-controls="nav-contact" aria-selected="false">Đánh giá</a>
                     </div>
                 </nav>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active px-2 py-4 border border-dark" id="nav-home" role="tabpanel"
+                <div class="tab-content border border-top-0 mb-5" id="nav-tabContent">
+                    <div class="tab-pane fade show active px-3 py-4" id="nav-home" role="tabpanel"
                         aria-labelledby="intro">
-                        <asp:Label runat="server" ID="detailSchedule">
+                        <asp:Label runat="server" ID="description">
                         </asp:Label>
                     </div>
-                    <div class="tab-pane fade px-2 py-4 border border-dark" id="nav-profile" role="tabpanel"
-                        aria-labelledby="price-detail">
-                        <div class="product">
-                            <asp:ListView runat="server" ID="detailPrice">
-                                <ItemTemplate>
-                                    <div class="bg-primary text-white d-inline p-2">
-                                        Khởi hành ngày : <span><%# Eval("StartDay") %></span>
+                    <div class="tab-pane fade px-3 py-4 el-scroll" id="nav-profile" role="tabpanel"
+                        aria-labelledby="price-detail" style="max-height: 500px; overflow-y: auto">
+                        <asp:ListView runat="server" ID="detailPrice">
+                            <ItemTemplate>
+                                <div class="mb-2">
+                                    <div class="bg-primary text-white p-2 d-inline-block">
+                                        Khởi hành ngày: <span><%# Eval("StartDay", "{0:dd/MM/yyyy}") %></span>
                                     </div>
-                                    <div class="row px-2 py-3">
-                                        <div class="col-3 ư">
-                                            Giờ khởi hành : <span><%# Eval("StartTime") %></span>
-                                        </div>
-                                        <div class="col-6">
-                                            <asp:ListView runat="server" ID="listPriceDetail" DataSource='<%# Eval("PriceTour") %>'>
-                                                <ItemTemplate>
-                                                    <div>
-                                                        Giá <%# Eval("CustomerName")%> <span class="text-danger"><%# Eval("Price") %></span>
-                                                    </div>
-                                                  <%--  <div>
-                                                        Giá trẻ em <span class="text-danger"><%# Eval("Price") %></span>
-                                                    </div>--%>
-                                                </ItemTemplate>
-                                            </asp:ListView>
-                                        </div>
-                                        <div class="col-3">
-                                            <a href="#" class="btn btn-warning">
-                                                <i class="fas fa-shopping-cart text-white"></i>
-                                                <b class="text-white">Thêm vào giỏ</b>
-                                            </a>
+                                    <div class="container-fluid">
+                                        <div class="row px-2 py-3 bg-light">
+                                            <div class="col-3">
+                                                Giờ khởi hành: <span><%# Eval("StartTime") %></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <asp:ListView runat="server" DataSource='<%# Eval("PriceTour") %>'>
+                                                    <ItemTemplate>
+                                                        <div>
+                                                            Giá <%# Eval("CustomerName")%>: <span class="text-danger"><%# Eval("Price", "{0:n0}") %>đ</span>
+                                                        </div>
+                                                    </ItemTemplate>
+                                                </asp:ListView>
+                                            </div>
+                                            <div class="col-3">
+                                                <a href="#" class="btn btn-mid-orange font-14">
+                                                    <i class="fas fa-shopping-cart text-white"></i>
+                                                    <span class="text-white">Thêm vào giỏ</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </ItemTemplate>
-                            </asp:ListView>
-                        </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:ListView>
                     </div>
-                    <div class="tab-pane fade px-2 py-4 border border-dark" id="nav-contact" role="tabpanel"
+                    <div class="tab-pane fade px-3 py-4" id="nav-contact" role="tabpanel"
                         aria-labelledby="rule">
-                        deg
+                        <asp:Label runat="server" ID="content">
+                        </asp:Label>
                     </div>
-                    <div class="tab-pane fade px-2 py-4 border border-dark" id="nav-contact1" role="tabpanel"
+                    <div class="tab-pane fade px-3 py-4" id="nav-contact1" role="tabpanel"
                         aria-labelledby="rating">
-                        deg
+                        Đang cập nhật...
                     </div>
                 </div>
             </div>
-            <div class="col-3" style="padding-top: 48px">
-                <div class="border border-dark p-3 text-center">
-                    <small>Giá Chỉ</small>
-                    <br>
-                    <b class="text-danger">1500000
-                    </b>
-                    <br>
-                    <br>
-                    <a href="#" class="btn btn-warning font-weight-bold text-uppercase text-white py-2"
-                        style="width: 100%">Giữ chỗ
+            <div class="col-3 py-4 mt-5">
+                <div class="border shadow p-3 text-center">
+                    <div>Giá chỉ</div>
+                    <div class="font-20 text-danger my-3"><strong>150.000đ</strong></div>
+                    <a href="#" class="btn btn-mid-orange w-100 font-weight-bold text-uppercase text-white py-2">Giữ chỗ</a>
+                    <a href="tel:19004518" class="btn btn-outline-mid-blue w-100 d-flex my-3 flex-column">
+                        <span class="text-uppercase">đăng ký tư vấn</span>
+                        <small class="text-dark">Hotline: 19004518</small>
                     </a>
+                </div>
+                <div class="border shadow p-3 mt-4">
+                    <div class="text-center text-uppercase font-weight-bold pb-3">Mọi thắc mắc xin vui lòng liên hệ</div>
+                    <div>Hotline: 19004518</div>
+                    <div>Email: sales@hanoitourist.vn</div>
                 </div>
             </div>
         </div>

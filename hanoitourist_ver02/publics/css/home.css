@@ -3040,6 +3040,9 @@ textarea.form-control {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
+.btn {
+    font-weight: 500 !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
     .btn {
@@ -14577,4 +14580,17 @@ a:hover {
     margin-bottom: 0 !important;
     margin-left: 5px;
 }
+.el-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.el-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.el-scroll::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
 /*# sourceMappingURL=main.css.map */

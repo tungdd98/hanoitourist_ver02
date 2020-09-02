@@ -17,9 +17,10 @@ namespace DTO
 
         public DepartureDay() { }
 
-        public DepartureDay(DateTime startDay, List<PriceTour> list)
+        public DepartureDay(DateTime startDay, TimeSpan startTime, List<PriceTour> list)
         {
             StartDay = startDay;
+            StartTime = startTime;
             PriceTour = list;
         }
 

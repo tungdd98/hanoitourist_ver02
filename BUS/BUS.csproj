@@ -51,7 +51,6 @@
     <Compile Include="CustomerTypeBus.cs" />
     <Compile Include="TimeTourBus.cs" />
     <Compile Include="TourBus.cs" />
-    <Compile Include="TourDetailBus.cs" />
     <Compile Include="UserBus.cs" />
     <Compile Include="VehicleTourBus.cs" />
   </ItemGroup>
