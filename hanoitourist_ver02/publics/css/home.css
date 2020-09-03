@@ -14592,5 +14592,42 @@ a:hover {
     background-color: darkgrey;
     outline: 1px solid slategrey;
 }
+.el-end-slot {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+}
+.el-end-slot .el-end-slot__label {
+    position: relative;
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transform: rotate(-45deg);
+}
+
+.el-end-slot .el-end-slot__label::after, .el-end-slot .el-end-slot__label::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #fff;
+}
+.el-end-slot .el-end-slot__label::after {
+    width: 110%;
+    height: 110%;
+}
+.el-end-slot .el-end-slot__label::before {
+    width: 115%;
+    height: 145%;
+}
 
 /*# sourceMappingURL=main.css.map */

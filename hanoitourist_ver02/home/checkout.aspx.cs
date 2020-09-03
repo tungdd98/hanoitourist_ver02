@@ -4,10 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DAL;
 using DTO;
 using BUS;
-using System.Diagnostics;
 
 namespace hanoitourist_ver02.home
 {
@@ -137,14 +135,17 @@ namespace hanoitourist_ver02.home
         public void GetTotalMoney()
         {
             float totalMoney = 0;
-            foreach(Cart cart in carts)
+            if(carts.Count > 0)
             {
-                foreach(CartDepartureDay cartDepartureDay in cart.CartDepartureDays)
+                foreach (Cart cart in carts)
                 {
-                    totalMoney += cartDepartureDay.Total;
+                    foreach (CartDepartureDay cartDepartureDay in cart.CartDepartureDays)
+                    {
+                        totalMoney += cartDepartureDay.Total;
+                    }
                 }
             }
-
+            
             Session["Total"] = totalMoney;
             lbTotalMoney.Text = Convert.ToDecimal(Session["Total"]).ToString("#,##"); ;
         }

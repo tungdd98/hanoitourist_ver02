@@ -20,6 +20,8 @@
         <div class="row my-4">
             <div class="col-9">
                 <div class="border shadow-sm p-3 rounded">
+                    <% if (Session["Email"] == null)
+                        { %>
                     <div class="border-bottom mb-4">
                         <h5>THÔNG TIN LIÊN HỆ</h5>
                         <p class="font-italic">Thông tin có dấu (*) là bắt buộc phải nhập. Xin quý khách vui lòng kiểm tra kỹ thông tin email, điện thoại để tránh bị sai sót.</p>
@@ -62,16 +64,17 @@
                             </div>
                         </div>
                     </div>
+                    <%} %>
                     <div class="border-bottom mb-4">
                         <h5>LOẠI HÌNH THANH TOÁN</h5>
                         <div class="el-custom-checkbox row mb-2">
                             <div class="offset-3">
-                                <asp:RadioButton Text="Thanh toán toàn bộ (100% giá trị tour)" runat="server" Checked="true" GroupName="typeCheckout" />
+                                <asp:RadioButton ID="rdoType1" Text="Thanh toán toàn bộ (100% giá trị tour)" runat="server" Checked="true" GroupName="typeCheckout" />
                             </div>
                         </div>
                         <div class="el-custom-checkbox row mb-2">
                             <div class="offset-3">
-                                <asp:RadioButton Text="Đặt cọc trước (20% giá trị tour)" runat="server" GroupName="typeCheckout" />
+                                <asp:RadioButton ID="rdoType0" Text="Đặt cọc trước (20% giá trị tour)" runat="server" GroupName="typeCheckout" />
                             </div>
                         </div>
                     </div>
@@ -79,69 +82,75 @@
                         <h5>PHƯƠNG THỨC THANH TOÁN</h5>
                         <div class="el-custom-checkbox row mb-2">
                             <div class="offset-3">
-                                <asp:RadioButton Text="Thanh toán tại nhà" runat="server" Checked="true" GroupName="locationCheckout" />
+                                <asp:RadioButton ID="rdoMethod1" Text="Thanh toán tại nhà" runat="server" Checked="true" GroupName="locationCheckout" />
                             </div>
                         </div>
                         <div class="el-custom-checkbox row mb-2">
                             <div class="offset-3">
-                                <asp:RadioButton Text="Thanh toán trực tiếp tại Hanoitourist" runat="server" GroupName="locationCheckout" />
+                                <asp:RadioButton ID="rdoMethod0" Text="Thanh toán trực tiếp tại Hanoitourist" runat="server" GroupName="locationCheckout" />
                             </div>
                         </div>
                     </div>
                     <p><i>* Khi Quý khách nhấn nút "Hoàn thành đặt tour" cũng đồng nghĩa là Quý khách đã đồng ý với các điều khoản và điều kiện về đặt dịch vụ trên website của Hanoitourist</i></p>
                     <div class="flex-center my-3">
-                        <asp:Button Text="THANH TOÁN" runat="server" CssClass="btn btn-mid-blue" />
+                        <asp:Button ID="btnCheckOut" Text="THANH TOÁN" runat="server" CssClass="btn btn-mid-blue" OnClick="btnCheckOut_Click" />
                     </div>
                 </div>
             </div>
             <div class="col-3">
                 <div class="border shadow rounded sticky-top" style="top: 80px">
                     <div class="text-white bg-mid-blue px-3 py-2 font-16">GIỎ HÀNG CỦA BẠN</div>
-                    <div class="p-3">
-                        <div class="text-uppercase font-16">VOUCHER NGHỈ DƯỠNG FLC</div>
-                        <div class="d-flex align-items-center mb-2">
-                            <img
-                                src="../publics/uploads/qrcode.png"
-                                alt=""
-                                height="14" class="pr-2" />
-                            <div>
-                                Mã tour: ...
+                    <asp:ListView runat="server" ID="myCartList">
+                        <ItemTemplate>
+                            <div class="p-3 border-bottom">
+                                <div class="text-uppercase font-16 text-truncate font-weight-bold mb-1"><%# Eval("Title") %></div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <img
+                                        src="../publics/uploads/qrcode.png"
+                                        alt=""
+                                        height="14" class="pr-2" />
+                                    <div>
+                                        Mã tour: <strong><%# Eval("TourId") %></strong>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <img
+                                        src="../publics/uploads/location.png"
+                                        alt=""
+                                        height="14" class="pr-2" />
+                                    <div>
+                                        Điểm khởi hành: <strong><%# Eval("DepartureName") %></strong>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <img
+                                        src="../publics/uploads/clock (1).png"
+                                        alt=""
+                                        height="14" class="pr-2" />
+                                    <div>
+                                        Thời gian: <strong><%# Eval("TimeName") %></strong>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <img
+                                        src="../publics/uploads/traveler.png"
+                                        alt=""
+                                        height="14" class="pr-2" />
+                                    <div>
+                                        Phương tiện: <strong><%# Eval("VehicleName") %></strong>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-2">
-                            <img
-                                src="../publics/uploads/location.png"
-                                alt=""
-                                height="14" class="pr-2" />
-                            <div>
-                                Điểm khởi hành: ...
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-2">
-                            <img
-                                src="../publics/uploads/clock (1).png"
-                                alt=""
-                                height="14" class="pr-2" />
-                            <div>
-                                Thời gian: ...
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-2">
-                            <img
-                                src="../publics/uploads/traveler.png"
-                                alt=""
-                                height="14" class="pr-2" />
-                            <div>
-                                Phương tiện: ...
-                            </div>
-                        </div>
-                        <hr />
+                        </ItemTemplate>
+                    </asp:ListView>
 
-                    </div>
                     <div class="p-3">
                         <div class="d-flex justify-content-between align-items-center">
                             <div><strong>Tổng tiền: </strong></div>
-                            <div><strong class="text-danger font-16 el-weight-bold">00đ</strong></div>
+                            <div>
+                                <strong class="text-danger font-16 el-weight-bold">
+                                    <asp:Label Text="" ID="lbTotalMoney" runat="server" />đ</strong>
+                            </div>
                         </div>
                     </div>
                 </div>

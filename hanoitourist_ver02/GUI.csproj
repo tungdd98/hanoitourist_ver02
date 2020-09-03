@@ -114,6 +114,7 @@
     <Content Include="home\about.aspx" />
     <Content Include="home\checkout.aspx" />
     <Content Include="home\confirm.aspx" />
+    <Content Include="home\finish.aspx" />
     <Content Include="home\index.aspx" />
     <Content Include="home\search.aspx" />
     <Content Include="home\tour.aspx" />
@@ -467,6 +468,13 @@
     </Compile>
     <Compile Include="home\confirm.aspx.designer.cs">
       <DependentUpon>confirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\finish.aspx.cs">
+      <DependentUpon>finish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\finish.aspx.designer.cs">
+      <DependentUpon>finish.aspx</DependentUpon>
     </Compile>
     <Compile Include="home\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

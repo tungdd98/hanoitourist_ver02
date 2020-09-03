@@ -227,7 +227,10 @@
                     <asp:ListView runat="server" ID="tourHotKhuyenMai">
                         <ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </div>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -407,7 +410,10 @@
                     <asp:ListView runat="server" ID="tourTheoDiemDenTrongNuoc">
                         <ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </div>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -585,7 +591,10 @@
                     <asp:ListView runat="server" ID="tourTheoDiemDenNgoaiNuoc">
                         <ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </div>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
