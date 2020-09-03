@@ -302,7 +302,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
                                         </div>
                                     </div>
                                 </div>
@@ -482,10 +482,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button
-                                                class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                                Giữ chỗ
-                                            </button>
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
                                         </div>
                                     </div>
                                 </div>
@@ -625,7 +622,7 @@
                                         </div>
                                     </div>
                                     <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                       <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                             class="text-uppercase text-dark el-weight-bold text-truncate d-block">
                                             <%# Eval("Title") %>
                                         </asp:HyperLink>
@@ -663,10 +660,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button
-                                                class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                                Giữ chỗ
-                                            </button>
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
                                         </div>
                                     </div>
                                 </div>

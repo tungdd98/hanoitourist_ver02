@@ -113,6 +113,7 @@
     <Content Include="admin\_vendor\main.js" />
     <Content Include="home\about.aspx" />
     <Content Include="home\checkout.aspx" />
+    <Content Include="home\confirm.aspx" />
     <Content Include="home\index.aspx" />
     <Content Include="home\search.aspx" />
     <Content Include="home\tour.aspx" />
@@ -460,6 +461,13 @@
     <Compile Include="home\checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="home\confirm.aspx.cs">
+      <DependentUpon>confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\confirm.aspx.designer.cs">
+      <DependentUpon>confirm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="home\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -591,7 +599,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-   <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
     <ItemGroup>
       <RoslynFiles Include="$(CscToolPath)\*" />
     </ItemGroup>

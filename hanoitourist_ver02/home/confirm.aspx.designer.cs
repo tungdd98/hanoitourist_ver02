@@ -11,7 +11,7 @@ namespace hanoitourist_ver02.home
 {
 
 
-    public partial class checkout
+    public partial class confirm
     {
 
         /// <summary>
@@ -24,39 +24,57 @@ namespace hanoitourist_ver02.home
         protected global::System.Web.UI.WebControls.Label textBreadcrumb;
 
         /// <summary>
-        /// cartList control.
+        /// name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView cartList;
+        protected global::System.Web.UI.WebControls.TextBox name;
 
         /// <summary>
-        /// btnUpdate control.
+        /// nation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.TextBox nation;
 
         /// <summary>
-        /// myCartList control.
+        /// address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView myCartList;
+        protected global::System.Web.UI.WebControls.TextBox address;
 
         /// <summary>
-        /// lbTotalMoney control.
+        /// phone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTotalMoney;
+        protected global::System.Web.UI.WebControls.TextBox phone;
+
+        /// <summary>
+        /// email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox email;
+
+        /// <summary>
+        /// content control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox content;
     }
 }
