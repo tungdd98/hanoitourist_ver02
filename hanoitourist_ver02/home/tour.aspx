@@ -38,7 +38,10 @@
             <asp:ListView runat="server" ID="tourList">
                 <ItemTemplate>
                     <div class="col-2 p-1">
-                        <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                        <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                            <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                <div class="el-end-slot__label">Hết chỗ trống</div>
+                            </div>
                             <div
                                 class="position-relative el-hot-tour__image">
                                 <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -75,11 +78,10 @@
                                 </div>
                             </div>
                             <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                <a
-                                    href="#"
+                                <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                     class="text-uppercase text-dark el-weight-bold text-truncate d-block">
-                                    <%# Eval("Title") %>
-                                </a>
+                                            <%# Eval("Title") %>
+                                </asp:HyperLink>
                                 <div
                                     class="d-flex justify-content-between align-items-center py-2">
                                     <div class="font-13">
@@ -99,7 +101,7 @@
                                             <div class="ml-1">
                                                 <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                     <ItemTemplate>
-                                                        <div><%# Eval("StartDay", "{0:MM/dd}") %></div>
+                                                        <div><%# Eval("StartDay", "{0:dd/MM}") %></div>
                                                     </ItemTemplate>
                                                 </asp:ListView>
                                             </div>
@@ -114,10 +116,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <button
-                                        class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                        Giữ chỗ
-                                    </button>
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
                                 </div>
                             </div>
                         </div>

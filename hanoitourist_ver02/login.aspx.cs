@@ -27,6 +27,7 @@ namespace hanoitourist_ver02
                 Session["Email"] = name.Text;
                 Session["Name"] = user.Rows[0]["Name"].ToString();
                 Session["Rule"] = rule;
+                Session["UserId"] = user.Rows[0]["Id"].ToString();
 
                 if (rule == 1)
                 {

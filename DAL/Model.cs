@@ -46,5 +46,14 @@ namespace DAL
 
             return count > 0;
         }
+        public int Insert(string sql)
+        {
+            SqlConnection con = GetConnect();
+            con.Open();
+            SqlCommand cmd = new SqlCommand(sql, con);
+
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            return id;
+        }
     }
 }
