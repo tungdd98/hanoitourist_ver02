@@ -22,5 +22,10 @@ namespace BUS
 
             model.Execute(sql);
         }
+        public DataTable GetRecord(int id)
+        {
+            string sql = "Select OrderDetail.*, CustomerTypeName = (Select Title from CustomerType where OrderDetail.CustomerTypeId = CustomerType.Id), StartDay = (Select StartDay from DepartureDay where OrderDetail.DepartureDayId = DepartureDay.Id) from OrderDetail where OrderDetail.OrderId = " + id;
+            return model.GetTable(sql);
+        }
     }
 }
