@@ -37,7 +37,7 @@ namespace hanoitourist_ver02.layouts
             Application_Start();
             Session_Start();
             userOnline.Text = "Số người đang truy cập : " + Membership.GetNumberOfUsersOnline().ToString();
-            userVisited.Text = "Bạn là vị khách thứ : " + Application["quantity"].ToString();
+            userVisited.Text = "Số lượt truy cập trang web : " + Application["quantity"].ToString();
         }
         public void LoadNavigation()
         {
