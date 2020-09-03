@@ -46,6 +46,8 @@
     <Compile Include="DepartureDayBus.cs" />
     <Compile Include="HomeBus.cs" />
     <Compile Include="LocationBus.cs" />
+    <Compile Include="OrderBus.cs" />
+    <Compile Include="OrderDetailBus.cs" />
     <Compile Include="PriceTourBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomerTypeBus.cs" />

@@ -227,7 +227,10 @@
                     <asp:ListView runat="server" ID="tourHotKhuyenMai">
                         <ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </div>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -302,7 +305,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
                                         </div>
                                     </div>
                                 </div>
@@ -407,7 +410,10 @@
                     <asp:ListView runat="server" ID="tourTheoDiemDenTrongNuoc">
                         <ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </div>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -482,10 +488,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button
-                                                class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                                Giữ chỗ
-                                            </button>
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
                                         </div>
                                     </div>
                                 </div>
@@ -588,7 +591,10 @@
                     <asp:ListView runat="server" ID="tourTheoDiemDenNgoaiNuoc">
                         <ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </div>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -625,7 +631,7 @@
                                         </div>
                                     </div>
                                     <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                       <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                             class="text-uppercase text-dark el-weight-bold text-truncate d-block">
                                             <%# Eval("Title") %>
                                         </asp:HyperLink>
@@ -663,10 +669,7 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button
-                                                class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                                Giữ chỗ
-                                            </button>
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
                                         </div>
                                     </div>
                                 </div>
