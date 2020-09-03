@@ -60,10 +60,10 @@
                     </div>
                     <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center el-custom-checkbox">
-                            <asp:RadioButton Text="Tour trong nước" runat="server" ID="radioTourNation" GroupName="tourLocation" Checked="true" />
+                            <asp:RadioButton Text="Tour trong nước" runat="server" ID="radioTourNation" GroupName="tourLocation" Checked="true" OnCheckedChanged="radioTourNation_CheckedChanged" autopostback="true" />
                         </div>
                         <div class="d-flex align-items-center el-custom-checkbox ml-3">
-                            <asp:RadioButton Text="Tour nước ngoài" runat="server" ID="radioTourEnterNation" GroupName="tourLocation" />
+                            <asp:RadioButton Text="Tour nước ngoài" runat="server" ID="radioTourEnterNation" GroupName="tourLocation" OnCheckedChanged="radioTourEnterNation_CheckedChanged" autopostback="true" />
                         </div>
                         <div
                             class="ml-auto overflow-hidden rounded d-flex border align-items-center">
@@ -84,9 +84,6 @@
                             </div>
                             <div class="col">
                                 <asp:DropDownList ID="dropDiemDen" runat="server" CssClass="form-control rounded-0 border-right-0 font-14" AppendDataBoundItems="true">
-                                    <Items>
-                                        <asp:ListItem Text="Bạn muốn đi đâu?" Value="" />
-                                    </Items>
                                 </asp:DropDownList>
                             </div>
                             <div class="col">
@@ -362,7 +359,7 @@
                             <img
                                 src="../publics/uploads/locations/<%# Eval("Thumbnail") %>"
                                 alt=""
-                                class="img-fluid rounded" />
+                                class="rounded" height="170" />
                             <div class="absolute-center">
                                 <span
                                     class="text-white el-weight-bold text-uppercase el-text-shadow"><%# Eval("Title") %></span>
@@ -543,7 +540,7 @@
                             <img
                                 src="../publics/uploads/locations/<%# Eval("Thumbnail") %>"
                                 alt=""
-                                class="img-fluid rounded" />
+                                class="rounded" />
                             <div class="absolute-center">
                                 <span
                                     class="text-white el-weight-bold text-uppercase el-text-shadow"><%# Eval("Title") %></span>

@@ -206,9 +206,9 @@ namespace BUS
             return model.GetTable(sql);
         }
         // Lấy thông tin location điểm đến/ điểm đi
-        public DataTable GetLocationsIsStart(byte isStart = 0)
+        public DataTable GetLocationsIsStart(byte isStart = 0, byte isNation = 0)
         {
-            string sql = "Select * from Locations where IsStart = " + isStart;
+            string sql = "Select Locations.* from Locations inner join Countries on Locations.CountryId = Countries.Id where IsStart = " + isStart + " and IsNation = " + isNation;
             return model.GetTable(sql);
         }
         // Lấy thông tin thời gian 

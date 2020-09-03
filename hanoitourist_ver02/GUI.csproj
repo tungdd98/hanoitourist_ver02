@@ -122,6 +122,10 @@
     <Content Include="home\search.aspx" />
     <Content Include="home\tour.aspx" />
     <Content Include="home\tour_detail.aspx" />
+    <Content Include="home\_vendor\bootstrap.bundle.js" />
+    <Content Include="home\_vendor\jquery.min.js" />
+    <Content Include="home\_vendor\slick.css" />
+    <Content Include="home\_vendor\slick.min.js" />
     <Content Include="login.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="publics\css\admin.css" />

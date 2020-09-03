@@ -66,15 +66,21 @@ namespace hanoitourist_ver02.home
             dropDiemXuatPhat.DataTextField = "Title";
             dropDiemXuatPhat.DataBind();
             // Điểm đến
-            dropDiemDen.DataSource = bus.GetLocationsIsStart(0);
-            dropDiemDen.DataValueField = "Id";
-            dropDiemDen.DataTextField = "Title";
-            dropDiemDen.DataBind();
+            LoadDropDiemDen();
             // Thời gian
             dropTime.DataSource = bus.GetTimeTour();
             dropTime.DataValueField = "Id";
             dropTime.DataTextField = "Title";
             dropTime.DataBind();
+        }
+        public void LoadDropDiemDen(byte isNation = 0)
+        {
+            dropDiemDen.Items.Clear();
+            dropDiemDen.Items.Add(new ListItem("Bạn muốn đi đâu?", ""));
+            dropDiemDen.DataSource = bus.GetLocationsIsStart(0, isNation);
+            dropDiemDen.DataValueField = "Id";
+            dropDiemDen.DataTextField = "Title";
+            dropDiemDen.DataBind();
         }
         protected void Button_Search(object sender, EventArgs e)
         {
@@ -111,6 +117,16 @@ namespace hanoitourist_ver02.home
             {
                 Response.Redirect("~/home/search.aspx?departureId=" + departureId + "&destinationId=" + destinationId + "&time=" + time + "&date=" + date + "&price=" + price + "&nation=" + nation + "&search=");
             }
+        }
+
+        protected void radioTourNation_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadDropDiemDen(0);
+        }
+
+        protected void radioTourEnterNation_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadDropDiemDen(1);
         }
     }
 }
