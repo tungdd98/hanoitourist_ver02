@@ -65,48 +65,53 @@
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../locations/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-cat"></i>
                     <span>Quản lý địa điểm</span></a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../customer_type/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-certificate"></i>
                     <span>Quản lý loại khách hàng</span></a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../time/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-bug"></i>
                     <span>Quản lý thời gian</span></a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../vehicle/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-bong"></i>
                     <span>Quản lý loại phương tiện</span></a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../tours/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fab fa-battle-net"></i>
                     <span>Quản lý tours</span></a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../price_tour/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fab fa-bandcamp"></i>
                     <span>Quản lý giá tours</span></a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../departure_day/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-assistive-listening-systems"></i>
                     <span>Quản lý thời gian tour</span></a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../customer/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-anchor"></i>
                     <span>Quản lý khách hàng</span></a>
             </div>
             <div class="nav-item">
                 <a class="nav-link" href="../user/index.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fab fa-app-store-ios"></i>
                     <span>Quản lý tài khoản</span></a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link" href="../user/index.aspx">
+                    <i class="fas fa-adjust"></i>
+                    <span>Quản lý đơn hàng</span></a>
             </div>
 
             <!-- Divider -->
@@ -135,7 +140,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <div class="input-group">
+                    <!--<div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button">
@@ -143,7 +148,7 @@
                             </button>
 
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Topbar Navbar -->
 
