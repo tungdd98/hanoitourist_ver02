@@ -38,6 +38,7 @@ namespace hanoitourist_ver02.layouts
             Session_Start();
             userOnline.Text = "Số người đang truy cập : " + Membership.GetNumberOfUsersOnline().ToString();
             userVisited.Text = "Số lượt truy cập trang web : " + Application["quantity"].ToString();
+            lbTotalQuantity.Text = Session["TotalQuantity"] == null ? "0" : Session["TotalQuantity"].ToString();
         }
         public void LoadNavigation()
         {

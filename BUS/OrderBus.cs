@@ -32,5 +32,10 @@ namespace BUS
             string sql = "Select * from Orders where Id = " + id;
             return model.GetTable(sql);
         }
+        // Lấy số tour được đặt nhiều nhất
+        public void GetTourBestOrder()
+        {
+            string sql = "";
+        }
     }
 }

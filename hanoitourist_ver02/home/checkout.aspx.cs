@@ -118,6 +118,8 @@ namespace hanoitourist_ver02.home
         public void Destroy()
         {
             Session["carts"] = null;
+            Session["Total"] = 0;
+            Session["TotalQuantity"] = 0;
         }
         // Xoá sản phẩm trong giỏ hàng
         public void DeleteCart()
@@ -147,6 +149,7 @@ namespace hanoitourist_ver02.home
             }
             
             Session["Total"] = totalMoney;
+            Session["TotalQuantity"] = carts.Count;
             lbTotalMoney.Text = Convert.ToDecimal(Session["Total"]).ToString("#,##"); ;
         }
 
