@@ -12,6 +12,9 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+     <script runat="server">
+       
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -278,7 +281,7 @@
                             CÔNG TY LỮ HÀNH HANOITOURIST
                         </div>
                         <div class="row text-white">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="my-2">
                                     <img
                                         src="../publics/uploads/icon12.png"
@@ -323,7 +326,7 @@
                                     <span>Hotline:0965934518</span>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="my-2">
                                     <img
                                         src="../publics/uploads/phone.png"
@@ -370,13 +373,18 @@
                                         LHQT</span>
                                 </div>
                             </div>
+                            <div class="col-4">
+                                <div>
+                                    <asp:Label runat="server" ID="userOnline"></asp:Label>
+                                </div>
+                                <div>
+                                    <asp:Label runat="server" ID="userVisited"></asp:Label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="bg-primary text-center text-white py-1 position-relative">
-                    <div class="d-inline-block position-absolute" style="right: 5%">
-                        <asp:Label runat="server" ID="userOnline"></asp:Label>
-                    </div>
                     Clone by Nhóm 2
                 </div>
             </footer>
@@ -469,5 +477,6 @@
             });
         });
     </script>
+   
 </body>
 </html>

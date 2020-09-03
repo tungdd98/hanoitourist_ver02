@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_admin.Master.cs" Inherits="hanoitourist_ver02.layouts._default" %>
+﻿    <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_admin.Master.cs" Inherits="hanoitourist_ver02.layouts._default" %>
 
 <!DOCTYPE html>
 

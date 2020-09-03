@@ -34,7 +34,10 @@ namespace hanoitourist_ver02.layouts
                 register.Visible = true;
                 login.Visible = true;
             }
-            userOnline.Text = "Số người truy cập : " + Membership.GetNumberOfUsersOnline().ToString();
+            Application_Start();
+            Session_Start();
+            userOnline.Text = "Số người đang truy cập : " + Membership.GetNumberOfUsersOnline().ToString();
+            userVisited.Text = "Số lượt truy cập trang web : " + Application["quantity"].ToString();
         }
         public void LoadNavigation()
         {
@@ -44,6 +47,25 @@ namespace hanoitourist_ver02.layouts
             // Menu du lịch nước ngoài
             ListNav2.DataSource = bus.GetCountries(1);
             ListNav2.DataBind();
+        }
+        void Application_Start()
+        {
+            Application.Lock();
+            System.IO.StreamReader sr;
+            sr = new System.IO.StreamReader(Server.MapPath("quantity.txt"));
+            string quantity = sr.ReadLine();
+            sr.Close();
+            Application.UnLock();
+            Application["quantity"] = quantity;
+        }
+
+        void Session_Start()
+        {
+            Application["quantity"] = int.Parse(Application["quantity"].ToString()) + 1;
+            System.IO.StreamWriter sw;
+            sw = new System.IO.StreamWriter(Server.MapPath("quantity.txt"));
+            sw.Write(Application["quantity"].ToString());
+            sw.Close();
         }
     }
 }
