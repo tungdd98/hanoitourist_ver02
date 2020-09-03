@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link href="../publics/css/home.css" rel="stylesheet" />
-    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -68,14 +68,16 @@
                             </a>
                         </div>
                         <div>
-                            
+
                             <asp:HyperLink NavigateUrl="~/register.aspx" runat="server" Text="Đăng ký" ID="register" CssClass="btn btn-sm btn-outline-warning px-3" />
-                            <asp:HyperLink NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" ID ="login" CssClass="btn btn-sm btn-warning text-white px-3" />
-                            <asp:Label NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" ID ="userLogin" CssClass="" />
-                            <asp:HyperLink NavigateUrl="~/logout.aspx" runat="server" Text="home"  CssClass="btn btn-sm btn-warning text-white px-3" ID="logout">
+                            <asp:HyperLink NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" ID="login" CssClass="btn btn-sm btn-warning text-white px-3" />
+                            <asp:Label NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" ID="userLogin" CssClass="" />
+                            <asp:HyperLink NavigateUrl="~/logout.aspx" runat="server" Text="home" CssClass="btn btn-sm btn-warning text-white px-3" ID="logout">
                                      Đăng xuất
                             </asp:HyperLink>
+
                         </div>
+
                     </div>
                 </div>
             </header>
@@ -373,7 +375,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-primary text-center text-white py-1">
+                <div class="bg-primary text-center text-white py-1 position-relative">
+                    <div class="d-inline-block position-absolute" style="right: 5%">
+                        <asp:Label runat="server" ID="userOnline"></asp:Label>
+                    </div>
                     Clone by Nhóm 2
                 </div>
             </footer>
