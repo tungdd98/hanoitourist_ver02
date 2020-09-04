@@ -27,5 +27,10 @@ namespace BUS
             string sql = "Select OrderDetail.*, CustomerTypeName = (Select Title from CustomerType where OrderDetail.CustomerTypeId = CustomerType.Id), StartDay = (Select StartDay from DepartureDay where OrderDetail.DepartureDayId = DepartureDay.Id) from OrderDetail where OrderDetail.OrderId = " + id;
             return model.GetTable(sql);
         }
+        public DataTable getBestSellerTour()
+        {
+            string sql = "select top 1 Title, SUM(Quantity) as tong from OrderDetail inner join Tours on OrderDetail.TourId = Tours.Id group by Title order by tong desc";
+            return model.GetTable(sql);
+        }
     }
 }
