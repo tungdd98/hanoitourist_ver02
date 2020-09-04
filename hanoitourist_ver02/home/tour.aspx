@@ -39,9 +39,9 @@
                 <ItemTemplate>
                     <div class="col-2 p-1">
                         <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
-                            <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
-                                <div class="el-end-slot__label">Hết chỗ trống</div>
-                            </div>
+                            <asp:HyperLink NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>' class="el-end-slot" runat="server" Visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                            </asp:HyperLink>
                             <div
                                 class="position-relative el-hot-tour__image">
                                 <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -111,12 +111,12 @@
                                         <div>Giá từ</div>
                                         <div
                                             class="el-weight-bold text-danger">
-                                            <%# Eval("Price", "{0:n0}") %>đ
+                                            <%# Eval("Price", "{0:n0}").ToString() == "0" ? "Liên hệ" : Eval("Price", "{0:n0}") + "đ" %>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" Visible='<%# Eval("Price", "{0:n0}").ToString() == "0" ? false : true %>' />
                                 </div>
                             </div>
                         </div>

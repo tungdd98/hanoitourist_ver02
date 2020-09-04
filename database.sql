@@ -107,8 +107,8 @@ Create table DepartureDay (
 )
 
 Create table PriceTour (
-	OriginalPrice float,
-	Price float,
+	OriginalPrice float default 0,
+	Price float default 0,
 	CustomerTypeId int foreign key(CustomerTypeId) references CustomerType(Id) on update cascade on delete cascade,
 	TourId varchar(100) foreign key(TourId) references Tours(Id) on update cascade on delete cascade,
 	Primary key(CustomerTypeId, TourId)
@@ -123,10 +123,23 @@ Create table OrderDetail (
 	Quantity int 
 )
 
+Create table Images (
+	Id int identity(1,1) primary key, 
+	Title nvarchar(max),
+	Thumbnail varchar(max)
+)
+
+Create table CustomerSales (
+	Id int identity(1,1) primary key,
+	Name nvarchar(max),
+	Email nvarchar(50),
+	Phone varchar(50)
+)
+
 -- Thêm mới dữ liệu
 
 Insert into Users values 
-	('e10adc3949ba59abbe56e057f20f883e', 'admin', N'Việt Nam', N'Hà Nội', '0973793711', 'admin@gmail.com', N'Không có', 1)
+	('e10adc3949ba59abbe56e057f20f883e', 'admin', N'Việt Nam', N'Hà Nội', '0973793711', 'tungdd98@gmail.com', N'Không có', 1)
 	
 Insert into Countries values
 	(N'Miền Bắc', 0),

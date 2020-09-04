@@ -100,6 +100,10 @@
                 <a class="nav-link" href="../orders/index.aspx">
                     <span>Quản lý đơn hàng</span></a>
             </div>
+            <div class="nav-item">
+                <a class="nav-link" href="../images/index.aspx">
+                    <span>Quản lý thư viện</span></a>
+            </div>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

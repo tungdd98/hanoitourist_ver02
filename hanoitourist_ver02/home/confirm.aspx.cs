@@ -136,6 +136,8 @@ namespace hanoitourist_ver02.home
 
                 Session["carts"] = null;
                 Session["Total"] = 0;
+                // Gửi mail
+                string gmail = Session["Email"] == null ? email.Text : Session["Email"].ToString();
                 Response.Redirect("~/home/finish.aspx");
             }
         }

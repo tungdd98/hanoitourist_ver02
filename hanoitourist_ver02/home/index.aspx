@@ -225,9 +225,9 @@
                         <ItemTemplate>
                             <div class="col-2 p-1">
                                 <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
-                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>' class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
                                         <div class="el-end-slot__label">Hết chỗ trống</div>
-                                    </div>
+                                    </asp:HyperLink>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -297,12 +297,12 @@
                                                 <div>Giá từ</div>
                                                 <div
                                                     class="el-weight-bold text-danger">
-                                                    <%# Eval("Price", "{0:n0}") %>đ
+                                                    <%# Eval("Price", "{0:n0}").ToString() == "0" ? "Liên hệ" : Eval("Price", "{0:n0}") + "đ" %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" Visible='<%# Eval("Price", "{0:n0}").ToString() == "0" ? false : true %>' />
                                         </div>
                                     </div>
                                 </div>
@@ -313,9 +313,7 @@
                 <% if (tourHotKhuyenMai.Items.Count > 0)
                     { %>
                 <div class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-outline-mid-blue px-5">
-                        Xem thêm
-                    </button>
+                    <asp:HyperLink NavigateUrl="~/home/viewmore.aspx?type=sale" runat="server" CssClass="btn btn-outline-mid-blue px-5" Text="Xem thêm" />
                 </div>
                 <%}
                     else
@@ -405,12 +403,12 @@
             <div class="tab-pane fade show active" id="tourtheodiemden" role="tabpanel" aria-labelledby="tourtheodiemden-tab">
                 <div class="row no-gutters ">
                     <asp:ListView runat="server" ID="tourTheoDiemDenTrongNuoc">
-                        <ItemTemplate>
+<ItemTemplate>
                             <div class="col-2 p-1">
                                 <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
-                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>' class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
                                         <div class="el-end-slot__label">Hết chỗ trống</div>
-                                    </div>
+                                    </asp:HyperLink>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -480,12 +478,12 @@
                                                 <div>Giá từ</div>
                                                 <div
                                                     class="el-weight-bold text-danger">
-                                                    <%# Eval("Price", "{0:n0}") %>đ
+                                                    <%# Eval("Price", "{0:n0}").ToString() == "0" ? "Liên hệ" : Eval("Price", "{0:n0}") + "đ" %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" Visible='<%# Eval("Price", "{0:n0}").ToString() == "0" ? false : true %>' />
                                         </div>
                                     </div>
                                 </div>
@@ -496,9 +494,7 @@
                 <% if (tourTheoDiemDenTrongNuoc.Items.Count > 0)
                     { %>
                 <div class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-outline-mid-blue px-5">
-                        Xem thêm
-                    </button>
+                    <asp:HyperLink NavigateUrl="~/home/viewmore.aspx?type=nation" runat="server" CssClass="btn btn-outline-mid-blue px-5" Text="Xem thêm" />
                 </div>
                 <%}
                     else
@@ -540,7 +536,7 @@
                             <img
                                 src="../publics/uploads/locations/<%# Eval("Thumbnail") %>"
                                 alt=""
-                                class="rounded" />
+                                class="rounded overflow-hidden" height="170" />
                             <div class="absolute-center">
                                 <span
                                     class="text-white el-weight-bold text-uppercase el-text-shadow"><%# Eval("Title") %></span>
@@ -589,9 +585,9 @@
                         <ItemTemplate>
                             <div class="col-2 p-1">
                                 <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
-                                    <div class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>' class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
                                         <div class="el-end-slot__label">Hết chỗ trống</div>
-                                    </div>
+                                    </asp:HyperLink>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -661,12 +657,12 @@
                                                 <div>Giá từ</div>
                                                 <div
                                                     class="el-weight-bold text-danger">
-                                                    <%# Eval("Price", "{0:n0}") %>đ
+                                                    <%# Eval("Price", "{0:n0}").ToString() == "0" ? "Liên hệ" : Eval("Price", "{0:n0}") + "đ" %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" />
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" Visible='<%# Eval("Price", "{0:n0}").ToString() == "0" ? false : true %>' />
                                         </div>
                                     </div>
                                 </div>
@@ -677,9 +673,7 @@
                 <% if (tourTheoDiemDenNgoaiNuoc.Items.Count > 0)
                     { %>
                 <div class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-outline-mid-blue px-5">
-                        Xem thêm
-                    </button>
+                    <asp:HyperLink NavigateUrl="~/home/viewmore.aspx?type=enternation" runat="server" CssClass="btn btn-outline-mid-blue px-5" Text="Xem thêm" />
                 </div>
                 <%}
                     else

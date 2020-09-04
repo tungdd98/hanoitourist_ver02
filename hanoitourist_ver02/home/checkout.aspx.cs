@@ -60,6 +60,8 @@ namespace hanoitourist_ver02.home
         public void AddCart()
         {
             string tourId = Request.QueryString["id"];
+            string dayId = String.IsNullOrEmpty(Request.QueryString["dayId"]) ? "" : Request.QueryString["dayId"].ToString();
+
             bool isExisted = false;
 
             foreach (Cart cart in carts)
@@ -67,6 +69,14 @@ namespace hanoitourist_ver02.home
                 if (cart.TourId == tourId)
                 {
                     isExisted = true;
+                    if(dayId != "")
+                    {
+                        int dayIndex = cart.CartDepartureDays.FindIndex(x => x.DepartureDayId == int.Parse(dayId));
+                        foreach(CartPrice item in cart.CartDepartureDays[dayIndex].CartPrices)
+                        {
+                            item.Quantity += 1;
+                        }
+                    }
                     break;
                 }
             }
@@ -76,13 +86,20 @@ namespace hanoitourist_ver02.home
                 List<Tour> tours = bus.GetTours("", "", "where Tours.Id = '" + tourId + "'");
                 Tour tour = tours[0];
 
-                int quantity = tour.DepartureDay.Count == 1 ? 1 : 0;
+                int quantity = 0;
                 float total = 0;
-                
+
                 List<CartDepartureDay> cartDepartureDays = new List<CartDepartureDay>();
                 foreach (DepartureDay itemDepatureDay in tour.DepartureDay)
                 {
                     List<CartPrice> cartPrices = new List<CartPrice>();
+                    if(dayId != "" && int.Parse(dayId) == itemDepatureDay.Id)
+                    {
+                        quantity = 1;
+                    } else
+                    {
+                        quantity = tour.DepartureDay.Count == 1 ? 1 : 0;
+                    }
                     foreach (PriceTour itemPriceTour in tour.PriceTour)
                     {
                         cartPrices.Add(new CartPrice(

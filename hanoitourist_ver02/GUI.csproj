@@ -122,6 +122,7 @@
     <Content Include="home\search.aspx" />
     <Content Include="home\tour.aspx" />
     <Content Include="home\tour_detail.aspx" />
+    <Content Include="home\viewmore.aspx" />
     <Content Include="home\_vendor\bootstrap.bundle.js" />
     <Content Include="home\_vendor\jquery.min.js" />
     <Content Include="home\_vendor\slick.css" />
@@ -532,6 +533,13 @@
     <Compile Include="home\tour_detail.aspx.designer.cs">
       <DependentUpon>tour_detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="home\viewmore.aspx.cs">
+      <DependentUpon>viewmore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\viewmore.aspx.designer.cs">
+      <DependentUpon>viewmore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="layouts\_default.Master.cs">
       <DependentUpon>_default.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -595,6 +603,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="publics\uploads\images\" />
     <Folder Include="publics\uploads\tours\" />
   </ItemGroup>
   <PropertyGroup>

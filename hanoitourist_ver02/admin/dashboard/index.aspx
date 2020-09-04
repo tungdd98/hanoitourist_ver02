@@ -55,18 +55,21 @@
                                 <div class="col-auto">
                                     <asp:Label runat="server" class="mb-0 mr-3 font-weight-bold text-gray-800" ID="tourName">
                                     </asp:Label>
-                                    Số lượng đặt <asp:Label runat="server" class="mb-0 mr-3 font-weight-bold text-gray-800" ID="tourQuantity"></asp:Label>
-                                </div> 
-                                
+                                    <div>
+                                        Số lượng đặt
+                                        <asp:Label runat="server" class="mb-0 mr-3 font-weight-bold text-gray-800" ID="tourQuantity"></asp:Label>
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 </asp:Content>
