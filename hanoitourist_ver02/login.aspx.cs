@@ -20,9 +20,9 @@ namespace hanoitourist_ver02
         UserBus bus = new UserBus();
         protected void Button1_Click1(object sender, EventArgs e)
         {
-            DataTable user = bus.Search(name.Text, Helper.GetMD5(passwords.Text));
-            if (user != null)
+            if (bus.CheckUserLogin(name.Text, Helper.GetMD5(passwords.Text)))
             {
+                DataTable user = bus.Search(name.Text, Helper.GetMD5(passwords.Text));
                 int rule = Int32.Parse(user.Rows[0]["Permission"].ToString());
                 Session["Email"] = name.Text;
                 Session["Name"] = user.Rows[0]["Name"].ToString();
@@ -37,6 +37,9 @@ namespace hanoitourist_ver02
                 {
                     Response.Redirect("home/index.aspx");
                 }
+            } else
+            {
+                Response.Write("<script>alert('Email hoặc mật khẩu không đúng!')</script>");
             }
         }
     }

@@ -24,7 +24,7 @@ namespace BUS
         } 
         public void Update(int id, byte status)
         {
-            string sql = "Update Orders set Status = " + status;
+            string sql = "Update Orders set Status = " + status + " where Id = " + id;
             model.Execute(sql);
         }
         public DataTable GetRecord(int id)

@@ -17,12 +17,13 @@ namespace DTO
 
         public DepartureDay() { }
 
-        public DepartureDay(int id, DateTime startDay, TimeSpan startTime, List<PriceTour> list)
+        public DepartureDay(int id, DateTime startDay, TimeSpan startTime, List<PriceTour> list, string tourId)
         {
             Id = id;
             StartDay = startDay;
             StartTime = startTime;
             PriceTour = list;
+            TourId = tourId;
         }
 
     }

@@ -21,8 +21,15 @@ namespace hanoitourist_ver02.admin.dashboard
                 userVisited.Text = Application["quantity"].ToString();
             }
             DataTable dt = bus.getBestSellerTour();
-            tourName.Text = dt.Rows[0]["Title"].ToString();
-            tourQuantity.Text = dt.Rows[0]["tong"].ToString();
+            if(dt.Rows.Count > 0)
+            {
+                tourName.Text = dt.Rows[0]["Title"].ToString();
+                tourQuantity.Text = dt.Rows[0]["tong"].ToString();
+            } else
+            {
+                tourName.Text = "Không có";
+                tourQuantity.Text = "0";
+            }
         }
     }
 }

@@ -57,5 +57,10 @@ namespace BUS
             string sql = "Select * from Users where Id = " + id;
             return model.GetTable(sql);
         }
+        public bool CheckUserLogin(string email, string password)
+        {
+            string sql = "Select count(*) from Users where Email = '" + email + "' and Password = '" + password + "'";
+            return model.CheckExits(sql);
+        }
     }
 }

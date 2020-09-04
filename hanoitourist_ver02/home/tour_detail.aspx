@@ -24,7 +24,7 @@
                     <asp:Label runat="server" ID="title" Text="">
                     </asp:Label>
                 </h2>
-                <asp:Image ImageUrl="" runat="server" ID="thumbnail" CssClass="img-fluid" alt="Responsive image" />
+                <asp:Image ImageUrl="" runat="server" ID="thumbnail" CssClass="img-fluid w-100" alt="Ảnh tour" />
                 <h4 class="my-3">Thông tin tour:
                 </h4>
                 <div class="border shadow-sm mb-5">
@@ -88,9 +88,9 @@
                 <nav>
                     <div class="nav nav-tabs bg-mid-blue d-flex justify-content-around p-3 text-uppercase" id="nav-tab" role="tablist">
                         <a class="btn btn-light text-primary" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                            role="tab" aria-controls="nav-home" aria-selected="true">Giới thiệu lịch trình</a>
+                            role="tab" aria-controls="nav-home" aria-selected="false">Giới thiệu lịch trình</a>
                         <a class="btn btn-light text-primary" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
-                            role="tab" aria-controls="nav-profile" aria-selected="false">Bảng giá chi tiết</a>
+                            role="tab" aria-controls="nav-profile" aria-selected="true">Bảng giá chi tiết</a>
                         <a class="btn btn-light text-primary" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
                             role="tab" aria-controls="nav-contact" aria-selected="false">Điều khoản quy định</a>
                         <a class="btn btn-light text-primary" id="nav-contact-tab1" data-toggle="tab" href="#nav-contact1"
@@ -98,12 +98,12 @@
                     </div>
                 </nav>
                 <div class="tab-content border border-top-0 mb-5" id="nav-tabContent">
-                    <div class="tab-pane fade show active px-3 py-4" id="nav-home" role="tabpanel"
+                    <div class="tab-pane fade px-3 py-4" id="nav-home" role="tabpanel"
                         aria-labelledby="intro">
                         <asp:Label runat="server" ID="description">
                         </asp:Label>
                     </div>
-                    <div class="tab-pane fade px-3 py-4 el-scroll" id="nav-profile" role="tabpanel"
+                    <div class="tab-pane show active fade px-3 py-4 el-scroll" id="nav-profile" role="tabpanel"
                         aria-labelledby="price-detail" style="max-height: 500px; overflow-y: auto">
                         <asp:ListView runat="server" ID="detailPrice">
                             <ItemTemplate>
@@ -126,10 +126,10 @@
                                                 </asp:ListView>
                                             </div>
                                             <div class="col-3">
-                                                <a href="#" class="btn btn-mid-orange font-14">
-                                                    <i class="fas fa-shopping-cart text-white"></i>
-                                                    <span class="text-white">Thêm vào giỏ</span>
-                                                </a>
+                                                <asp:LinkButton Text="text" runat="server" CssClass="btn btn-mid-orange font-14" PostBackUrl='<%# "~/home/checkout.aspx?id=" + Eval("TourId") + "&dayId=" + Eval("Id") + "&action=add" %>'>
+                                                <i class="fas fa-shopping-cart text-white"></i>
+                                                <span class="text-white">Thêm vào giỏ</span>
+                                                </asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>
@@ -152,9 +152,10 @@
                 <div class="border shadow p-3 text-center">
                     <div>Giá chỉ</div>
                     <div class="font-20 text-danger my-3">
-                        <strong><asp:Label Text="" ID="price" runat="server" />đ</strong>
+                        <strong>
+                            <asp:Label Text="" ID="price" runat="server" />đ</strong>
                     </div>
-                    <a href="#" class="btn btn-mid-orange w-100 font-weight-bold text-uppercase text-white py-2">Giữ chỗ</a>
+                    <asp:HyperLink NavigateUrl="" runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" ID="btnKeep" />
                     <a href="tel:19004518" class="btn btn-outline-mid-blue w-100 d-flex my-3 flex-column">
                         <span class="text-uppercase">đăng ký tư vấn</span>
                         <small class="text-dark">Hotline: 19004518</small>
