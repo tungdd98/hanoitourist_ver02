@@ -14,7 +14,7 @@ namespace BUS
         Model model = new Model();
         public DataTable Show()
         {
-            string sql = "Select PriceTour.*, Tours.Title as TourTitle, CustomerType.Title as CustomerTypeName from PriceTour inner join Tours on Tours.Id = PriceTour.TourId inner join CustomerType on PriceTour.CustomerTypeId = CustomerType.Id";
+            string sql = "Select PriceTour.*, Tours.Title as TourTitle, CustomerType.Title as CustomerTypeName from PriceTour inner join Tours on Tours.Id = PriceTour.TourId inner join CustomerType on PriceTour.CustomerTypeId = CustomerType.Id order by TourId desc";
             return model.GetTable(sql);
         }
         public bool Insert(float originalPrice, float price, int customerTypeId, string tourId)

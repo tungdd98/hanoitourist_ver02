@@ -6,7 +6,7 @@
     <!-- Begin: Breadcrumbs -->
     <nav aria-label="breadcrumb" class="bg-light">
         <div class="container">
-            <ol class="breadcrumb bg-white px-0">
+            <ol class="breadcrumb px-0 bg-light">
                 <li class="breadcrumb-item">
                     <asp:HyperLink NavigateUrl="~/home/index.aspx" runat="server" Text="Trang chủ" />
                 </li>
@@ -16,10 +16,13 @@
             </ol>
         </div>
     </nav>
+    <!-- End: Breadcrumbs -->
+
     <div class="container">
-        <h3 class="text-uppercase"><asp:Label Text="" runat="server" ID="title" /></h3>
+        <h3 class="text-uppercase">
+            <asp:Label Text="" runat="server" ID="title" /></h3>
         <div>
-           <asp:Label Text="" runat="server" ID="description" />
+            <asp:Label Text="" runat="server" ID="description" />
         </div>
         <div class="my-4 d-flex align-items-center justify-content-between">
             <h4>Danh sách tour</h4>
@@ -35,7 +38,10 @@
             <asp:ListView runat="server" ID="tourList">
                 <ItemTemplate>
                     <div class="col-2 p-1">
-                        <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                        <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                            <asp:HyperLink NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>' class="el-end-slot" runat="server" Visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                            </asp:HyperLink>
                             <div
                                 class="position-relative el-hot-tour__image">
                                 <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -72,11 +78,10 @@
                                 </div>
                             </div>
                             <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                <a
-                                    href="#"
+                                <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                     class="text-uppercase text-dark el-weight-bold text-truncate d-block">
-                                    <%# Eval("Title") %>
-                                </a>
+                                            <%# Eval("Title") %>
+                                </asp:HyperLink>
                                 <div
                                     class="d-flex justify-content-between align-items-center py-2">
                                     <div class="font-13">
@@ -96,7 +101,7 @@
                                             <div class="ml-1">
                                                 <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                     <ItemTemplate>
-                                                        <div><%# Eval("StartDay", "{0:MMM d}") %></div>
+                                                        <div><%# Eval("StartDay", "{0:dd/MM}") %></div>
                                                     </ItemTemplate>
                                                 </asp:ListView>
                                             </div>
@@ -106,15 +111,12 @@
                                         <div>Giá từ</div>
                                         <div
                                             class="el-weight-bold text-danger">
-                                            <%# Eval("Price", "{0:n0}") %>đ
+                                            <%# Eval("Price", "{0:n0}").ToString() == "0" ? "Liên hệ" : Eval("Price", "{0:n0}") + "đ" %>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <button
-                                        class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                        Giữ chỗ
-                                    </button>
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" Visible='<%# Eval("Price", "{0:n0}").ToString() == "0" ? false : true %>' />
                                 </div>
                             </div>
                         </div>
@@ -129,5 +131,5 @@
         </div>
         <%}%>
     </div>
-    <!-- End: Breadcrumbs -->
+
 </asp:Content>

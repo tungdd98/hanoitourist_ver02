@@ -3040,6 +3040,9 @@ textarea.form-control {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
+.btn {
+    font-weight: 500 !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
     .btn {
@@ -14570,4 +14573,70 @@ a:hover {
 #navbarSupportedContent .dropdown {
     position: static !important;
 }
+.custom-control-label::before {
+    top: 0.15rem !important; 
+}
+.el-custom-checkbox label {
+    margin-bottom: 0 !important;
+    margin-left: 5px;
+}
+.el-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.el-scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.el-scroll::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+.el-end-slot {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+}
+.el-end-slot .el-end-slot__label {
+    position: relative;
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transform: rotate(-45deg);
+}
+
+.el-end-slot .el-end-slot__label::after, .el-end-slot .el-end-slot__label::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #fff;
+}
+.el-end-slot .el-end-slot__label::after {
+    width: 110%;
+    height: 110%;
+}
+.el-end-slot .el-end-slot__label::before {
+    width: 115%;
+    height: 145%;
+}
+.el-scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 99999;
+}
+
 /*# sourceMappingURL=main.css.map */

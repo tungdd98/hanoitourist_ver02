@@ -6,12 +6,16 @@
 <head runat="server">
     <title>Hanoitourist</title>
     <script src="https://kit.fontawesome.com/ab4eacbd98.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link href="../home/_vendor/slick.css" rel="stylesheet" />
     <link href="../publics/css/home.css" rel="stylesheet" />
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="../home/_vendor/jquery.min.js"></script>
+    <script src="../home/_vendor/bootstrap.bundle.js"></script>
+    <script src="../home/_vendor/slick.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script runat="server">
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -57,26 +61,33 @@
                         <div class="font-12 mb-1">
                             <a href="#" class="text-dark mx-2">Giới thiệu</a>
                             <a href="#" class="text-dark ml-2 mr-4">Liên hệ</a>
-                            <a
-                                class="btn btn-sm btn-warning text-white rounded-pill"
-                                href="#">
+                            <asp:HyperLink NavigateUrl="~/home/checkout.aspx" runat="server" CssClass="btn btn-sm btn-warning text-white rounded-pill position-relative">
                                 <img
                                     src="../publics/uploads/giohang.png"
                                     alt="giohang"
                                     class="pr-2" />
                                 <span class="font-12">Giỏ hàng</span>
-                            </a>
+                                <span class="position-absolute rounded-circle bg-mid-blue text-white flex-center font-10" style="width: 20px; height: 20px; right: -8px; top: -8px">
+                                    <asp:Label Text="0" runat="server" ID="lbTotalQuantity" />
+                                </span>
+                            </asp:HyperLink>
                         </div>
                         <div>
-                            <asp:HyperLink NavigateUrl="~/register.aspx" runat="server" Text="Đăng ký" CssClass="btn btn-sm btn-outline-warning px-3" />
-                            <asp:HyperLink NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" CssClass="btn btn-sm btn-warning text-white px-3" />
+
+                            <asp:HyperLink NavigateUrl="~/register.aspx" runat="server" Text="Đăng ký" ID="register" CssClass="btn btn-sm btn-outline-warning px-3" />
+                            <asp:HyperLink NavigateUrl="~/login.aspx" runat="server" Text="Đăng nhập" ID="login" CssClass="btn btn-sm btn-warning text-white px-3" />
+                            <asp:HyperLink NavigateUrl="~/admin/dashboard/index.aspx" runat="server" ID="userLogin" Text="" />
+                            <asp:HyperLink NavigateUrl="~/logout.aspx" runat="server" Text="home" CssClass="btn btn-sm btn-warning text-white px-3" ID="logout">
+                                     Đăng xuất
+                            </asp:HyperLink>
+
                         </div>
                     </div>
                 </div>
             </header>
             <!-- End: Header -->
             <!-- Begin: Nav -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-primary sticky-top">
+            <nav class="navbar navbar-expand-lg navbar-light bg-primary sticky-top" style="z-index: 99999">
                 <div class="container">
                     <button
                         class="navbar-toggler"
@@ -273,7 +284,7 @@
                             CÔNG TY LỮ HÀNH HANOITOURIST
                         </div>
                         <div class="row text-white">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="my-2">
                                     <img
                                         src="../publics/uploads/icon12.png"
@@ -318,7 +329,7 @@
                                     <span>Hotline:0965934518</span>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="my-2">
                                     <img
                                         src="../publics/uploads/phone.png"
@@ -365,79 +376,106 @@
                                         LHQT</span>
                                 </div>
                             </div>
+                            <div class="col-4">
+                                <div class="el-weight-bold text-uppercase my-2 font-16">Thống kê truy cập</div>
+                                <div>
+                                    <asp:Label runat="server" ID="userOnline"></asp:Label>
+                                </div>
+                                <div>
+                                    <asp:Label runat="server" ID="userVisited"></asp:Label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-primary text-center text-white py-1">
+                <div class="bg-primary text-center text-white py-1 position-relative">
                     Clone by Nhóm 2
                 </div>
             </footer>
             <!-- End: Footer -->
         </div>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"></script>
-        <script
-            type="text/javascript"
-            src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <script>
-            $(function () {
-                $("#datepicker").datepicker();
-                $(".tour-inside").slick({
-                    infinite: true,
-                    slidesToShow: 8,
-                    slidesToScroll: 8,
-                    autoplay: true,
-                    speed: 300,
-                    prevArrow:
-                        '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
-                    nextArrow:
-                        '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
-                });
-                $(".tour-outside").slick({
-                    infinite: true,
-                    slidesToShow: 8,
-                    slidesToScroll: 8,
-                    autoplay: true,
-                    speed: 300,
-                    prevArrow:
-                        '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
-                    nextArrow:
-                        '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
-                });
-                $(".lib-video").slick({
-                    infinite: true,
-                    slidesToShow: 5,
-                    slidesToScroll: 5,
-                    autoplay: true,
-                    speed: 300,
-                    prevArrow:
-                        '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
-                    nextArrow:
-                        '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
-                });
-                $(".partner").slick({
-                    infinite: true,
-                    slidesToShow: 6,
-                    slidesToScroll: 6,
-                    autoplay: true,
-                    speed: 300,
-                    prevArrow:
-                        '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
-                    nextArrow:
-                        '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
-                });
-            });
-        </script>
     </form>
+    <div class="el-scroll-top flex-center shadow rounded bg-dark text-white font-20" onclick="scrollToTop()">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <script>
+        // Cấu hình thông báo
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+        });
+
+        const swAlert = (title = "", icon = "success") => {
+            Toast.fire({
+                icon,
+                title,
+            });
+        }
+
+        const scrollToTop = () => {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+    </script>
+    <script>
+        $(function () {
+            $(".tour-inside").slick({
+                infinite: true,
+                slidesToShow: 8,
+                slidesToScroll: 8,
+                autoplay: true,
+                speed: 300,
+                prevArrow:
+                    '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
+                nextArrow:
+                    '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
+            });
+            $(".tour-outside").slick({
+                infinite: true,
+                slidesToShow: 8,
+                slidesToScroll: 8,
+                autoplay: true,
+                speed: 300,
+                prevArrow:
+                    '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
+                nextArrow:
+                    '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
+            });
+            $(".lib-video").slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                autoplay: true,
+                speed: 300,
+                prevArrow:
+                    '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
+                nextArrow:
+                    '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
+            });
+            $(".partner").slick({
+                infinite: true,
+                slidesToShow: 6,
+                slidesToScroll: 6,
+                autoplay: true,
+                speed: 300,
+                prevArrow:
+                    '<div class="el-btn-slide el-btn-slide__prev"><i class="fas fa-angle-left"></i></div>',
+                nextArrow:
+                    '<div class="el-btn-slide el-btn-slide__next"><i class="fas fa-angle-right"></i></div>',
+            });
+        });
+    </script>
+    <script>!function (s, u, b, i, z) { var r, m; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = function (e) { return e <= 6 ? 5 : r(e - 1) + r(e - 3) }, (m = function (e) { var t, n, c; 5 < e || s._subiz_init_2094850928430 || (t = "https://", t += 0 === e ? "widget." + i + ".xyz" : 1 === e ? "storage.googleapis.com" : "sbz-" + r(10 + e) + ".com", t += "/sbz/app.js?accid=" + z, n = u.createElement(b), c = u.getElementsByTagName(b)[0], n.async = 1, n.src = t, c.parentNode.insertBefore(n, c), setTimeout(m, 2e3, e + 1)) })(0)) }(window, document, "script", "subiz", "acqrawjmjysrltqjdorx");</script>
+
 </body>
 </html>

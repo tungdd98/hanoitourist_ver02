@@ -40,5 +40,12 @@ namespace BUS
             string sql = "Select * from Customers where Id = " + id;
             return model.GetTable(sql);
         }
+        // Insert return id
+        public int InsertReturn(string name, string nation, string address, string phone, string email, string content)
+        {
+            string sql = "Insert into Customers values(N'" + name + "',N'" + nation + "',N'" + address + "',N'" + phone + "','" + email + "',N'" + content + "'" + "); Select SCOPE_IDENTITY();";
+
+            return model.Insert(sql);
+        }
     }
 }

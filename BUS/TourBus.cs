@@ -69,5 +69,11 @@ namespace BUS
             string sql = "Select * from Tours where Id = '" + id + "'";
             return model.GetTable(sql);
         }
+        public void DecrementPlace(string id, int slot)
+        {
+            string sql = "Update Tours set Place = " + slot + " where Id = '" + id + "'";
+
+            model.Execute(sql);
+        }
     }
 }

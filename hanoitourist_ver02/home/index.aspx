@@ -49,6 +49,7 @@
             <span class="sr-only">Next</span>
         </a>
         <!-- Begin: Search -->
+
         <div class="position-absolute w-100" style="bottom: 10px;">
             <div class="pb-20">
                 <div class="container bg-white p-20 rounded">
@@ -58,43 +59,18 @@
                         Tìm kiếm tour
                     </div>
                     <div class="d-flex align-items-center">
-                        <div class="form-check mr-4">
-                            <input
-                                class="form-check-input"
-                                type="radio"
-                                name="exampleRadios"
-                                id="exampleRadios"
-                                value="option1"
-                                checked />
-                            <label
-                                class="form-check-label text-capitalize"
-                                for="exampleRadios">
-                                Tour trong nước
-                            </label>
+                        <div class="d-flex align-items-center el-custom-checkbox">
+                            <asp:RadioButton Text="Tour trong nước" runat="server" ID="radioTourNation" GroupName="tourLocation" Checked="true" OnCheckedChanged="radioTourNation_CheckedChanged" autopostback="true" />
                         </div>
-                        <div class="form-check">
-                            <input
-                                class="form-check-input"
-                                type="radio"
-                                name="exampleRadios"
-                                id="exampleRadios1"
-                                value="option1"
-                                checked />
-                            <label
-                                class="form-check-label text-capitalize"
-                                for="exampleRadios1">
-                                tour nước ngoài
-                            </label>
+                        <div class="d-flex align-items-center el-custom-checkbox ml-3">
+                            <asp:RadioButton Text="Tour nước ngoài" runat="server" ID="radioTourEnterNation" GroupName="tourLocation" OnCheckedChanged="radioTourEnterNation_CheckedChanged" autopostback="true" />
                         </div>
                         <div
                             class="ml-auto overflow-hidden rounded d-flex border align-items-center">
-                            <input
-                                type="text"
-                                class="form-control font-14 border-0"
-                                placeholder="Tìm nhanh..." />
-                            <div class="py-2 px-3 border bg-gray-1">
+                            <asp:TextBox runat="server" placeholder="Tìm nhanh..." ID="textSearch" CssClass="form-control font-14 border-0" />
+                            <asp:LinkButton ID="btnSearch" runat="server" CssClass="py-2 px-3 border bg-gray-1" OnClick="Button_Search">
                                 <i class="fas fa-search"></i>
-                            </div>
+                            </asp:LinkButton>
                         </div>
                     </div>
                     <div class="mt-3 el-search">
@@ -108,9 +84,6 @@
                             </div>
                             <div class="col">
                                 <asp:DropDownList ID="dropDiemDen" runat="server" CssClass="form-control rounded-0 border-right-0 font-14" AppendDataBoundItems="true">
-                                    <Items>
-                                        <asp:ListItem Text="Bạn muốn đi đâu?" Value="" />
-                                    </Items>
                                 </asp:DropDownList>
                             </div>
                             <div class="col">
@@ -121,33 +94,26 @@
                                 </asp:DropDownList>
                             </div>
                             <div class="col">
-                                <input
-                                    type="text"
-                                    id="datepicker"
-                                    class="form-control font-14 rounded-0 border-right-0"
-                                    placeholder="Ngày khởi hành" />
+                                <asp:TextBox ID="startDay" runat="server" CssClass="form-control font-14 rounded-0 border-right-0" type="date" placeholder="Ngày khởi hành"></asp:TextBox>
                             </div>
                             <div class="col">
                                 <asp:DropDownList ID="dropPrice" runat="server" CssClass="form-control rounded-0 border-right-0 font-14" AppendDataBoundItems="true">
                                     <asp:ListItem Text="Khoảng giá" Value=""></asp:ListItem>
-                                    <asp:ListItem Text="Nhỏ hơn 3 triệu" Value="0"></asp:ListItem>
-                                    <asp:ListItem Text="Từ 3 triệu - 10 triệu" Value="1"></asp:ListItem>
-                                    <asp:ListItem Text="Từ 10 triệu - 25 triệu" Value="2"></asp:ListItem>
-                                    <asp:ListItem Text="Trên 25 triệu" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="Nhỏ hơn 3 triệu" Value="priceUnder3m"></asp:ListItem>
+                                    <asp:ListItem Text="Từ 3 triệu - 10 triệu" Value="price3mTo10m"></asp:ListItem>
+                                    <asp:ListItem Text="Từ 10 triệu - 25 triệu" Value="price10mTo25m"></asp:ListItem>
+                                    <asp:ListItem Text="Trên 25 triệu" Value="priceOver25m"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                             <div class="col">
-                                <button
-                                    class="btn btn-warning text-white w-100 el-weight-bold text-uppercase rounded-0 font-14">
-                                    <i class="fas fa-search"></i>
-                                    <span>Tìm kiếm</span>
-                                </button>
+                                <asp:Button ID="Button1" runat="server" Text="Tìm kiếm" CssClass="btn btn-warning text-white w-100 el-weight-bold text-uppercase rounded-0 font-14" OnClick="Button1_Click1" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- End: Search -->
     </div>
     <!-- End: Slide -->
@@ -258,7 +224,10 @@
                     <asp:ListView runat="server" ID="tourHotKhuyenMai">
                         <ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>' class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </asp:HyperLink>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -295,11 +264,10 @@
                                         </div>
                                     </div>
                                     <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                        <a
-                                            href="#"
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                             class="text-uppercase text-dark el-weight-bold text-truncate d-block">
                                             <%# Eval("Title") %>
-                                        </a>
+                                        </asp:HyperLink>
                                         <div
                                             class="d-flex justify-content-between align-items-center py-2">
                                             <div class="font-13">
@@ -319,7 +287,7 @@
                                                     <div class="ml-1">
                                                         <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                             <ItemTemplate>
-                                                                <div><%# Eval("StartDay", "{0:MMM d}") %></div>
+                                                                <div><%# Eval("StartDay", "{0:dd/MM}") %></div>
                                                             </ItemTemplate>
                                                         </asp:ListView>
                                                     </div>
@@ -329,15 +297,12 @@
                                                 <div>Giá từ</div>
                                                 <div
                                                     class="el-weight-bold text-danger">
-                                                    <%# Eval("Price", "{0:n0}") %>đ
+                                                    <%# Eval("Price", "{0:n0}").ToString() == "0" ? "Liên hệ" : Eval("Price", "{0:n0}") + "đ" %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button
-                                                class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                                Giữ chỗ
-                                            </button>
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" Visible='<%# Eval("Price", "{0:n0}").ToString() == "0" ? false : true %>' />
                                         </div>
                                     </div>
                                 </div>
@@ -348,9 +313,7 @@
                 <% if (tourHotKhuyenMai.Items.Count > 0)
                     { %>
                 <div class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-outline-mid-blue px-5">
-                        Xem thêm
-                    </button>
+                    <asp:HyperLink NavigateUrl="~/home/viewmore.aspx?type=sale" runat="server" CssClass="btn btn-outline-mid-blue px-5" Text="Xem thêm" />
                 </div>
                 <%}
                     else
@@ -394,7 +357,7 @@
                             <img
                                 src="../publics/uploads/locations/<%# Eval("Thumbnail") %>"
                                 alt=""
-                                class="img-fluid rounded" />
+                                class="rounded" height="170" />
                             <div class="absolute-center">
                                 <span
                                     class="text-white el-weight-bold text-uppercase el-text-shadow"><%# Eval("Title") %></span>
@@ -440,9 +403,12 @@
             <div class="tab-pane fade show active" id="tourtheodiemden" role="tabpanel" aria-labelledby="tourtheodiemden-tab">
                 <div class="row no-gutters ">
                     <asp:ListView runat="server" ID="tourTheoDiemDenTrongNuoc">
-                        <ItemTemplate>
+<ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>' class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </asp:HyperLink>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -479,11 +445,10 @@
                                         </div>
                                     </div>
                                     <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                        <a
-                                            href="#"
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                             class="text-uppercase text-dark el-weight-bold text-truncate d-block">
                                             <%# Eval("Title") %>
-                                        </a>
+                                        </asp:HyperLink>
                                         <div
                                             class="d-flex justify-content-between align-items-center py-2">
                                             <div class="font-13">
@@ -503,7 +468,7 @@
                                                     <div class="ml-1">
                                                         <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                             <ItemTemplate>
-                                                                <div><%# Eval("StartDay", "{0:MMM d}") %></div>
+                                                                <div><%# Eval("StartDay", "{0:dd/MM}") %></div>
                                                             </ItemTemplate>
                                                         </asp:ListView>
                                                     </div>
@@ -513,15 +478,12 @@
                                                 <div>Giá từ</div>
                                                 <div
                                                     class="el-weight-bold text-danger">
-                                                    <%# Eval("Price", "{0:n0}") %>đ
+                                                    <%# Eval("Price", "{0:n0}").ToString() == "0" ? "Liên hệ" : Eval("Price", "{0:n0}") + "đ" %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button
-                                                class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                                Giữ chỗ
-                                            </button>
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" Visible='<%# Eval("Price", "{0:n0}").ToString() == "0" ? false : true %>' />
                                         </div>
                                     </div>
                                 </div>
@@ -532,9 +494,7 @@
                 <% if (tourTheoDiemDenTrongNuoc.Items.Count > 0)
                     { %>
                 <div class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-outline-mid-blue px-5">
-                        Xem thêm
-                    </button>
+                    <asp:HyperLink NavigateUrl="~/home/viewmore.aspx?type=nation" runat="server" CssClass="btn btn-outline-mid-blue px-5" Text="Xem thêm" />
                 </div>
                 <%}
                     else
@@ -576,7 +536,7 @@
                             <img
                                 src="../publics/uploads/locations/<%# Eval("Thumbnail") %>"
                                 alt=""
-                                class="img-fluid rounded" />
+                                class="rounded overflow-hidden" height="170" />
                             <div class="absolute-center">
                                 <span
                                     class="text-white el-weight-bold text-uppercase el-text-shadow"><%# Eval("Title") %></span>
@@ -624,7 +584,10 @@
                     <asp:ListView runat="server" ID="tourTheoDiemDenNgoaiNuoc">
                         <ItemTemplate>
                             <div class="col-2 p-1">
-                                <div class="border rounded el-hot-tour h-100 d-flex flex-column">
+                                <div class="border rounded el-hot-tour h-100 d-flex flex-column position-relative">
+                                    <asp:HyperLink NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>' class="el-end-slot" runat="server" visible='<%# int.Parse(Eval("Place").ToString()) == 0 ? true: false %>'>
+                                        <div class="el-end-slot__label">Hết chỗ trống</div>
+                                    </asp:HyperLink>
                                     <div
                                         class="position-relative el-hot-tour__image">
                                         <img src="../publics/uploads/tours/<%# Eval("Thumbnail") %>" alt="" />
@@ -661,11 +624,10 @@
                                         </div>
                                     </div>
                                     <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
-                                        <a
-                                            href="#"
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# "~/home/tour_detail.aspx?id=" + Eval("Id") %>'
                                             class="text-uppercase text-dark el-weight-bold text-truncate d-block">
                                             <%# Eval("Title") %>
-                                        </a>
+                                        </asp:HyperLink>
                                         <div
                                             class="d-flex justify-content-between align-items-center py-2">
                                             <div class="font-13">
@@ -685,7 +647,7 @@
                                                     <div class="ml-1">
                                                         <asp:ListView runat="server" DataSource='<%# Eval("DepartureDay") %>'>
                                                             <ItemTemplate>
-                                                                <div><%# Eval("StartDay", "{0:MMM d}") %></div>
+                                                                <div><%# Eval("StartDay", "{0:dd/MM}") %></div>
                                                             </ItemTemplate>
                                                         </asp:ListView>
                                                     </div>
@@ -695,15 +657,12 @@
                                                 <div>Giá từ</div>
                                                 <div
                                                     class="el-weight-bold text-danger">
-                                                    <%# Eval("Price", "{0:n0}") %>đ
+                                                    <%# Eval("Price", "{0:n0}").ToString() == "0" ? "Liên hệ" : Eval("Price", "{0:n0}") + "đ" %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button
-                                                class="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3">
-                                                Giữ chỗ
-                                            </button>
+                                            <asp:HyperLink NavigateUrl='<%# "~/home/checkout.aspx?id=" + Eval("Id") + "&action=add" %>' runat="server" Text="Giữ chỗ" CssClass="btn btn-sm el-weight-bold text-capitalize btn-mid-orange text-white mt-2 px-3" Visible='<%# Eval("Price", "{0:n0}").ToString() == "0" ? false : true %>' />
                                         </div>
                                     </div>
                                 </div>
@@ -714,9 +673,7 @@
                 <% if (tourTheoDiemDenNgoaiNuoc.Items.Count > 0)
                     { %>
                 <div class="d-flex justify-content-center mt-4">
-                    <button class="btn btn-outline-mid-blue px-5">
-                        Xem thêm
-                    </button>
+                    <asp:HyperLink NavigateUrl="~/home/viewmore.aspx?type=enternation" runat="server" CssClass="btn btn-outline-mid-blue px-5" Text="Xem thêm" />
                 </div>
                 <%}
                     else
@@ -1356,7 +1313,6 @@
                                     <span class="text-danger">*</span>:</label>
                         <input
                             type="text"
-                            required
                             class="form-control font-14"
                             id="form_name"
                             placeholder="Nhập họ và tên bạn" />
@@ -1367,7 +1323,6 @@
                                     <span class="text-danger">*</span>:</label>
                         <input
                             type="email"
-                            required
                             class="form-control font-14"
                             id="form_email"
                             placeholder="Nhập email của bạn" />
@@ -1376,7 +1331,6 @@
                         <label for="form_phone">Số điện thoại :</label>
                         <input
                             type="text"
-                            required
                             class="form-control font-14"
                             id="form_phone"
                             placeholder="Nhập số điện thoại của bạn" />

@@ -11,7 +11,24 @@ namespace hanoitourist_ver02.layouts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Email"] != null)
+            {
+                userName.Text = Session["Name"].ToString();
+                if (Int32.Parse(Session["Rule"].ToString()) != 1)
+                {
+                    Response.Redirect("~/home/index.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/login.aspx");
+            }
+        }
 
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            Session["Email"] = null;
+            Response.Redirect("~/home/index.aspx");
         }
     }
 }

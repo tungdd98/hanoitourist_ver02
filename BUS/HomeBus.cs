@@ -42,7 +42,7 @@ namespace BUS
             return countries;
         }
         // Lấy danh sách tour
-        public List<Tour> GetTours(string option = "", string perPage = "", string query = "", string sortOrder = "")
+        public List<Tour> GetTours(string option = "", string perPage = "", string query = "", string sortOrder = "", string startDay = "")
         {
             string sql = "Select " + perPage + " Tours.*, " +
                 "DepartureName = (Select Title from Locations where Tours.DepartureLocationId = Locations.Id), " +
@@ -61,48 +61,70 @@ namespace BUS
             foreach (DataRow row in tb.Rows)
             {
                 // Lấy giá tour
-                DataTable priceTour = new DataTable();
-                priceTour = model.GetTable("Select MIN(Price) as Price, OriginalPrice from PriceTour where TourId = '" + row["Id"] + "' Group by OriginalPrice");
+                float price = 0,
+                    originalPrice = 0,
+                    sale = 0;
 
-                float originalPrice = float.Parse(priceTour.Rows[0]["OriginalPrice"].ToString());
-                float price = float.Parse(priceTour.Rows[0]["Price"].ToString());
-                float sale = 0;
-
-                if (originalPrice > price)
+                if (model.CheckExits("Select count(*) from PriceTour where TourId = '" + row["Id"] + "'"))
                 {
-                    sale = 100 - (price / originalPrice) * 100;
+                    DataTable priceTour = model.GetTable("Select MIN(Price) as Price from PriceTour where TourId = '" + row["Id"] + "'");
+                    price = float.Parse(priceTour.Rows[0]["Price"].ToString());
+                    DataTable originalPriceTour = model.GetTable("Select OriginalPrice from PriceTour where Price = " + price + " and TourId = '" + row["Id"] + "'");
+                    originalPrice = float.Parse(originalPriceTour.Rows[0]["OriginalPrice"].ToString());
+                    sale = originalPrice > price ? 100 - (price / originalPrice) * 100 : 0;
+                }
+
+                // Lấy danh sách giá
+                DataTable tbPriceTour = model.GetTable("Select CustomerTypeId, Price, OriginalPrice, Title from PriceTour inner join CustomerType on CustomerType.Id = PriceTour.CustomerTypeId where TourId = '" + row["Id"] + "'");
+                List<PriceTour> priceTours = new List<PriceTour>();
+                foreach (DataRow rowPriceTour in tbPriceTour.Rows)
+                {
+                    priceTours.Add(new PriceTour(
+                        float.Parse((rowPriceTour["OriginalPrice"].ToString())),
+                        float.Parse((rowPriceTour["Price"].ToString())),
+                        rowPriceTour["Title"].ToString(),
+                        int.Parse(rowPriceTour["CustomerTypeId"].ToString())
+                    ));
                 }
 
                 // Lấy ngày tháng đặt tour
-                DataTable tbDepartureDay = new DataTable();
-                tbDepartureDay = model.GetTable("Select StartDay from DepartureDay where TourId = '" + row["Id"] + "' order by StartDay desc");
+                DataTable tbDepartureDay = model.GetTable("Select Id, StartDay, StartTime from DepartureDay where TourId = '" + row["Id"] + "' and StartDay >= Getdate() order by StartDay desc");
                 List<DepartureDay> departureDays = new List<DepartureDay>();
-                foreach (DataRow rowDepartureDay in tbDepartureDay.Rows)
+                if (tbDepartureDay.Rows.Count > 0)
                 {
-                    departureDays.Add(new DepartureDay(
-                            DateTime.Parse(rowDepartureDay["StartDay"].ToString())
+                    foreach (DataRow rowDepartureDay in tbDepartureDay.Rows)
+                    {
+                        departureDays.Add(new DepartureDay(
+                            int.Parse(rowDepartureDay["Id"].ToString()),
+                            DateTime.Parse(rowDepartureDay["StartDay"].ToString()),
+                            TimeSpan.Parse(rowDepartureDay["StartTime"].ToString()),
+                            priceTours,
+                            row["Id"].ToString()
                         ));
+                    }
                 }
+
                 // Lấy khu vực
                 byte isNation = byte.Parse(row["IsNation"].ToString());
 
                 Tour tour = new Tour(
-                        row["Id"].ToString(),
-                        row["Title"].ToString(),
-                        row["Thumbnail"].ToString(),
-                        row["Description"].ToString(),
-                        row["Content"].ToString(),
-                        Int32.Parse(row["Place"].ToString()),
-                        row["Schedule"].ToString(),
-                        row["DepartureName"].ToString(),
-                        row["DestinationName"].ToString(),
-                        row["TimeName"].ToString(),
-                        row["VehicleName"].ToString(),
-                        float.Parse(priceTour.Rows[0]["OriginalPrice"].ToString()),
-                        float.Parse(priceTour.Rows[0]["Price"].ToString()),
-                        sale,
-                        departureDays
-                    );
+                    row["Id"].ToString(),
+                    row["Title"].ToString(),
+                    row["Thumbnail"].ToString(),
+                    row["Description"].ToString(),
+                    row["Content"].ToString(),
+                    Int32.Parse(row["Place"].ToString()),
+                    row["Schedule"].ToString(),
+                    row["DepartureName"].ToString(),
+                    row["DestinationName"].ToString(),
+                    row["TimeName"].ToString(),
+                    row["VehicleName"].ToString(),
+                    originalPrice,
+                    price,
+                    sale,
+                    departureDays,
+                    priceTours
+                );
 
                 switch (option)
                 {
@@ -112,18 +134,8 @@ namespace BUS
                             tours.Add(tour);
                         }
                         break;
-                    case "date":
-                        if (departureDays.Count > 0)
-                        {
-                            int compare = DateTime.Compare(departureDays.ElementAt(0).StartDay, DateTime.Today);
-                            if (compare == 0)
-                            {
-                                tours.Add(tour);
-                            }
-                        }
-                        break;
                     case "nation":
-                        if(isNation == 0)
+                        if (isNation == 0)
                         {
                             tours.Add(tour);
                         }
@@ -139,15 +151,16 @@ namespace BUS
                         break;
                 }
             }
+
             // Sort
-            switch(sortOrder)
+            switch (sortOrder)
             {
                 case "priceDesc":
-                    for(int i = 0; i < tours.Count - 1; i++)
+                    for (int i = 0; i < tours.Count - 1; i++)
                     {
-                        for(int j = i + 1; j < tours.Count; j++)
+                        for (int j = i + 1; j < tours.Count; j++)
                         {
-                            if(tours[i].Price < tours[j].Price)
+                            if (tours[i].Price < tours[j].Price)
                             {
                                 Tour temp = tours[i];
                                 tours[i] = tours[j];
@@ -170,7 +183,21 @@ namespace BUS
                         }
                     }
                     break;
+                case "priceUnder3m":
+                    return FilterTourByDay(FilterTourByPrice(tours, 0, 3000000), startDay);
+                case "price3mTo10m":
+                    return FilterTourByDay(FilterTourByPrice(tours, 3000000, 10000000), startDay);
+                case "price10mTo25m":
+                    return FilterTourByDay(FilterTourByPrice(tours, 10000000, 25000000), startDay);
+                case "priceOver25m":
+                    return FilterTourByDay(FilterTourByPrice(tours, 25000000, float.MaxValue), startDay);
             }
+            // Filter nếu có ngày
+            if (startDay != "")
+            {
+                return FilterTourByDay(tours, startDay);
+            }
+
             return tours;
         }
         // Lấy danh sách location
@@ -186,9 +213,9 @@ namespace BUS
             return model.GetTable(sql);
         }
         // Lấy thông tin location điểm đến/ điểm đi
-        public DataTable GetLocationsIsStart(byte isStart = 0)
+        public DataTable GetLocationsIsStart(byte isStart = 0, byte isNation = 0)
         {
-            string sql = "Select * from Locations where IsStart = " + isStart;
+            string sql = "Select Locations.* from Locations inner join Countries on Locations.CountryId = Countries.Id where IsStart = " + isStart + " and IsNation = " + isNation;
             return model.GetTable(sql);
         }
         // Lấy thông tin thời gian 
@@ -196,6 +223,46 @@ namespace BUS
         {
             string sql = "Select * from TimeTour order by Id desc";
             return model.GetTable(sql);
+        }
+        // Filter tour theo giá
+        public List<Tour> FilterTourByPrice(List<Tour> tours, float start, float end)
+        {
+            List<Tour> newTours = new List<Tour>();
+            foreach (Tour tour in tours)
+            {
+                foreach (PriceTour priceTour in tour.PriceTour)
+                {
+                    if (priceTour.Price >= start && priceTour.Price <= end)
+                    {
+                        newTours.Add(tour);
+                        break;
+                    }
+                }
+            }
+
+            return newTours;
+        }
+        // Filter theo ngày
+        public List<Tour> FilterTourByDay(List<Tour> tours, string startDay = "")
+        {
+            List<Tour> newTours = new List<Tour>();
+            if (startDay != "")
+            {
+                foreach (Tour tour in tours)
+                {
+                    foreach (DepartureDay item in tour.DepartureDay)
+                    {
+                        if (String.Format("{0:yyyy-MM-dd}", item.StartDay) == startDay)
+                        {
+                            newTours.Add(tour);
+                            break;
+                        }
+                    }
+                }
+                return newTours;
+            }
+
+            return tours;
         }
     }
 }
